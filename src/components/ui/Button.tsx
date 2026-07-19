@@ -36,6 +36,20 @@ const VARIANT_STYLES = {
     'border border-ink-900 text-ink-900 hover:bg-ink-900 hover:text-white',
   outlineInverse:
     'border border-white/70 text-white hover:bg-white hover:text-ink-900',
+  // Premium outline CTA — the secondary partner to `accent`. Same motion,
+  // shadow, and press language (matched height/padding come for free from
+  // sharing SIZE_STYLES), but transparent with a vivid blue border instead
+  // of a filled gradient. `group` lets the icon (rendered by the call site
+  // with `group-hover:text-outline-blue-bright`) brighten in step with the
+  // border. Text stays white in every state — only the border, icon, glow,
+  // and a faint background tint move on hover.
+  outlineSecondary:
+    'group border border-outline-blue bg-transparent text-white ' +
+    'shadow-[0_4px_16px_-4px_rgba(49,125,246,0.35)] ' +
+    'transition-[scale,translate,box-shadow,background-color,border-color] duration-[250ms] ease-out ' +
+    'hover:scale-[1.02] hover:-translate-y-0.5 hover:border-outline-blue-bright hover:bg-outline-blue/8 ' +
+    'hover:shadow-[0_10px_26px_-4px_rgba(49,125,246,0.5)] ' +
+    'active:scale-[0.98] active:translate-y-0 active:shadow-[0_2px_8px_-2px_rgba(49,125,246,0.35)]',
   ghost: 'text-ink-900 hover:bg-ink-50',
 } as const;
 

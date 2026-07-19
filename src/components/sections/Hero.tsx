@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Phone } from 'lucide-react';
+import { Phone, ClipboardList } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { Image } from '@/components/common/Image';
@@ -45,7 +45,17 @@ export function Hero({ eyebrow, title, description, image, trustPoints }: HeroPr
             >
               Call {siteConfig.phone.display}
             </Button>
-            <Button href="/contact" variant="outlineInverse" size="lg">
+            <Button
+              href="/contact"
+              variant="outlineSecondary"
+              size="lg"
+              leftIcon={
+                <ClipboardList
+                  className="h-5 w-5 text-outline-blue transition-colors duration-[250ms] ease-out group-hover:text-outline-blue-bright"
+                  aria-hidden="true"
+                />
+              }
+            >
               Request a Free Estimate
             </Button>
           </div>

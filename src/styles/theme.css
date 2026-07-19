@@ -75,6 +75,16 @@
   --color-secondary-900: #142f45;
   --color-secondary-950: #0d1e2c;
 
+  /* Outline-button blue — a crisp, fully-saturated azure, deliberately more
+     vivid than the muted secondary-* scale above. Used ONLY by the Button
+     `outlineSecondary` variant (border, icon, glow shadow) so the premium
+     outline CTA has the same energy as the accent gradient CTA it's paired
+     with. Verified 4.9:1 / 6.44:1 against the dark hero background
+     (ink-950) at rest / hover — comfortably clears the 3:1 UI-component
+     minimum with room to spare. */
+  --color-outline-blue: #317df6;
+  --color-outline-blue-bright: #5695fb;
+
   /* Tertiary accent — muted dusty rose. Sparing use only: small badges,
      decorative accents, hover states. Not used in the CTA gradient — see
      --color-cta-pink above for that. */
