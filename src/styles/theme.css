@@ -1,0 +1,93 @@
+@import 'tailwindcss';
+
+/**
+ * Design tokens for the Benals Construction site.
+ * Tailwind v4 CSS-first theme — edit these values to re-theme the whole app.
+ * Brand direction: white / near-black ink / deep navy / confident red.
+ */
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'Archivo', 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  /* Warm off-white background — softer than stark #fff, still reads "bright/clean" */
+  --color-paper: #faf9f7;
+
+  /* Primary brand blue — deep navy, used for header/footer/headings/primary actions */
+  --color-navy-50: #eef2f7;
+  --color-navy-100: #dce6f0;
+  --color-navy-200: #b9cce0;
+  --color-navy-300: #93afcb;
+  --color-navy-400: #6a8cae;
+  --color-navy-500: #4c6d8e;
+  --color-navy-600: #395472;
+  --color-navy-700: #2b415a;
+  --color-navy-800: #1d2e40;
+  --color-navy-900: #12202f;
+  --color-navy-950: #0a141e;
+
+  /* Accent red — used sparingly for CTAs and key highlights only */
+  --color-brand-red-50: #fdecec;
+  --color-brand-red-100: #fad2d2;
+  --color-brand-red-400: #de4b45;
+  --color-brand-red-500: #cc2b28;
+  --color-brand-red-600: #b31f1f;
+  --color-brand-red-700: #921a1c;
+
+  /* Container widths kept in one place so layout stays consistent */
+  --container-content: 72rem;
+  --container-narrow: 48rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-neutral-200);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-neutral-900);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--color-navy-950);
+  }
+
+  /* Consistent, visible focus ring for keyboard users — never remove without replacing */
+  :focus-visible {
+    outline: 2px solid var(--color-brand-red-500);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-navy-900);
+    color: var(--color-paper);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
