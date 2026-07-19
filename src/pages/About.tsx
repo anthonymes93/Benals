@@ -57,7 +57,7 @@ export function About() {
               title="Built on being easy to work with"
               className="max-w-none"
             />
-            <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-neutral-600">
+            <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-ink-600">
               <p>
                 Benals Construction takes on renovations, additions, and build-outs across{' '}
                 {siteConfig.location.region}. Most of the work comes from homeowners and business

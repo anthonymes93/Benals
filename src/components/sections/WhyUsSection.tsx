@@ -2,6 +2,15 @@ import { ShieldCheck, MessageSquare, CalendarClock, MapPin } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { cn } from '@/lib/cn';
+
+/** Cycled across icon chips for subtle decorative variety — primary carries the most weight. */
+const ICON_TONES = [
+  'bg-primary-50 text-primary-600',
+  'bg-secondary-50 text-secondary-600',
+  'bg-primary-50 text-primary-600',
+  'bg-tertiary-50 text-tertiary-600',
+];
 
 interface WhyUsPoint {
   icon: LucideIcon;
@@ -54,15 +63,16 @@ export function WhyUsSection({
       <SectionHeading eyebrow={eyebrow} title={title} description={description} />
 
       <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        {points.map((point) => {
+        {points.map((point, index) => {
           const Icon = point.icon;
+          const chipTone = ICON_TONES[index % ICON_TONES.length];
           return (
             <div key={point.title}>
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-red-50 text-brand-red-600">
+              <div className={cn('flex h-11 w-11 items-center justify-center rounded-lg', chipTone)}>
                 <Icon className="h-6 w-6" aria-hidden="true" />
               </div>
-              <h3 className="mt-4 text-lg text-navy-950">{point.title}</h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-neutral-600">
+              <h3 className="mt-4 text-lg text-ink-950">{point.title}</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-ink-600">
                 {point.description}
               </p>
             </div>

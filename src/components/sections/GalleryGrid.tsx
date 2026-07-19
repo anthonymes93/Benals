@@ -12,7 +12,7 @@ export function GalleryGrid({ images }: GalleryGridProps) {
       {images.map((image) => (
         <div
           key={image.src}
-          className="mb-4 overflow-hidden rounded-xl border border-neutral-200 break-inside-avoid"
+          className="mb-4 overflow-hidden rounded-xl border border-ink-200 break-inside-avoid"
         >
           <Image asset={image} />
         </div>

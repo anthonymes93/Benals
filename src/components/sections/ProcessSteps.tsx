@@ -37,13 +37,13 @@ export function ProcessSteps() {
         {STEPS.map((step) => (
           <li key={step.number} className="relative pl-14">
             <span
-              className="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-full bg-navy-900 font-display text-sm font-bold text-white"
+              className="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-full bg-ink-900 font-display text-sm font-bold text-white"
               aria-hidden="true"
             >
               {step.number}
             </span>
-            <h3 className="text-lg text-navy-950">{step.title}</h3>
-            <p className="mt-2 text-[15px] leading-relaxed text-neutral-600">
+            <h3 className="text-lg text-ink-950">{step.title}</h3>
+            <p className="mt-2 text-[15px] leading-relaxed text-ink-600">
               {step.description}
             </p>
           </li>

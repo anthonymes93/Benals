@@ -34,7 +34,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
     <div
       id="mobile-menu"
       className={cn(
-        'fixed inset-0 top-16 z-40 bg-navy-950 lg:hidden',
+        'fixed inset-0 top-16 z-40 bg-ink-950 lg:hidden',
         isOpen ? 'block' : 'hidden',
       )}
       role="dialog"

@@ -62,13 +62,13 @@ export function ContactForm() {
 
   if (status === 'success') {
     return (
-      <Card className="flex flex-col items-start gap-3 border-navy-200 bg-navy-50">
-        <CheckCircle2 className="h-8 w-8 text-navy-800" aria-hidden="true" />
-        <h3 className="text-xl text-navy-950">Message sent</h3>
-        <p className="text-neutral-600">
+      <Card className="flex flex-col items-start gap-3 border-ink-200 bg-ink-50">
+        <CheckCircle2 className="h-8 w-8 text-ink-800" aria-hidden="true" />
+        <h3 className="text-xl text-ink-950">Message sent</h3>
+        <p className="text-ink-600">
           Thanks for reaching out. We'll get back to you within one business day. If it's
           urgent, call us at{' '}
-          <a href={siteConfig.phone.href} className="font-semibold text-navy-900 underline">
+          <a href={siteConfig.phone.href} className="font-semibold text-ink-900 underline">
             {siteConfig.phone.display}
           </a>
           .
@@ -156,7 +156,7 @@ export function ContactForm() {
       {status === 'error' ? (
         <div
           role="alert"
-          className="mt-5 flex items-start gap-2.5 rounded-md bg-brand-red-50 p-4 text-sm text-brand-red-700"
+          className="mt-5 flex items-start gap-2.5 rounded-md bg-primary-50 p-4 text-sm text-primary-700"
         >
           <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
           <p>

@@ -2,36 +2,79 @@
 
 /**
  * Design tokens for the Benals Construction site.
- * Tailwind v4 CSS-first theme — edit these values to re-theme the whole app.
- * Brand direction: white / near-black ink / deep navy / confident red.
+ * Tailwind v4 CSS-first theme — edit these values to re-theme the whole app;
+ * every component consumes these names, none hardcode a hex value.
+ *
+ * Brand direction: clean white surfaces, dark charcoal text, warm terracotta-
+ * orange as the primary accent, a steel blue as a secondary accent, and a
+ * muted dusty-rose pink used sparingly for small highlights and hover states.
+ * Every text/background pairing below has been checked against WCAG AA
+ * (most hit AAA) — see the shade comments for where a stop is reserved for
+ * large/decorative use only because it doesn't clear AA at small text sizes.
  */
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: 'Archivo', 'Inter', ui-sans-serif, system-ui, sans-serif;
 
-  /* Warm off-white background — softer than stark #fff, still reads "bright/clean" */
-  --color-paper: #faf9f7;
+  /* Primary background — clean white, per brand direction */
+  --color-paper: #ffffff;
 
-  /* Primary brand blue — deep navy, used for header/footer/headings/primary actions */
-  --color-navy-50: #eef2f7;
-  --color-navy-100: #dce6f0;
-  --color-navy-200: #b9cce0;
-  --color-navy-300: #93afcb;
-  --color-navy-400: #6a8cae;
-  --color-navy-500: #4c6d8e;
-  --color-navy-600: #395472;
-  --color-navy-700: #2b415a;
-  --color-navy-800: #1d2e40;
-  --color-navy-900: #12202f;
-  --color-navy-950: #0a141e;
+  /* Ink — warm charcoal scale. Body text, headings, and dark section surfaces
+     (header/footer/hero/CTA bands) all read from this instead of pure black. */
+  --color-ink-50: #f7f6f4;
+  --color-ink-100: #ede9e6;
+  --color-ink-200: #dbd7d2;
+  --color-ink-300: #b9b3ab;
+  --color-ink-400: #8c8579;
+  --color-ink-500: #6b6459;
+  --color-ink-600: #524b42;
+  --color-ink-700: #3d372f;
+  --color-ink-800: #2a2521;
+  --color-ink-900: #1c1815;
+  --color-ink-950: #120f0d;
 
-  /* Accent red — used sparingly for CTAs and key highlights only */
-  --color-brand-red-50: #fdecec;
-  --color-brand-red-100: #fad2d2;
-  --color-brand-red-400: #de4b45;
-  --color-brand-red-500: #cc2b28;
-  --color-brand-red-600: #b31f1f;
-  --color-brand-red-700: #921a1c;
+  /* Primary accent — warm terracotta orange. Main CTAs, links, icon fills,
+     eyebrow labels, focus ring. primary-500 is AA for large text/decorative
+     use only; use primary-600+ for small text and button backgrounds. */
+  --color-primary-50: #fcf1ea;
+  --color-primary-100: #f8dfcc;
+  --color-primary-200: #f0be99;
+  --color-primary-300: #e69a64;
+  --color-primary-400: #db7a3d;
+  --color-primary-500: #c9611f;
+  --color-primary-600: #ab4e17;
+  --color-primary-700: #863e13;
+  --color-primary-800: #642e0f;
+  --color-primary-900: #442009;
+  --color-primary-950: #2c1406;
+
+  /* Secondary accent — steel blue. Used sparingly alongside orange: alternate
+     icon fills, secondary badges, secondary interactive states. */
+  --color-secondary-50: #eef5fb;
+  --color-secondary-100: #d9eaf6;
+  --color-secondary-200: #b0d4ec;
+  --color-secondary-300: #7fb6de;
+  --color-secondary-400: #4c93c9;
+  --color-secondary-500: #2e76ac;
+  --color-secondary-600: #235d8a;
+  --color-secondary-700: #1c4a6e;
+  --color-secondary-800: #173c58;
+  --color-secondary-900: #142f45;
+  --color-secondary-950: #0d1e2c;
+
+  /* Tertiary accent — muted dusty rose. Sparing use only: small badges,
+     decorative accents, hover states. Never a primary CTA color. */
+  --color-tertiary-50: #fbf0f1;
+  --color-tertiary-100: #f5dfe1;
+  --color-tertiary-200: #eac0c4;
+  --color-tertiary-300: #da9ba2;
+  --color-tertiary-400: #c97786;
+  --color-tertiary-500: #b15468;
+  --color-tertiary-600: #904457;
+  --color-tertiary-700: #6e3545;
+  --color-tertiary-800: #512834;
+  --color-tertiary-900: #391d25;
+  --color-tertiary-950: #241217;
 
   /* Container widths kept in one place so layout stays consistent */
   --container-content: 72rem;
@@ -40,7 +83,7 @@
 
 @layer base {
   * {
-    border-color: var(--color-neutral-200);
+    border-color: var(--color-ink-200);
   }
 
   html {
@@ -50,7 +93,7 @@
 
   body {
     background-color: var(--color-paper);
-    color: var(--color-neutral-900);
+    color: var(--color-ink-900);
     font-family: var(--font-sans);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -63,17 +106,17 @@
     font-family: var(--font-display);
     font-weight: 700;
     letter-spacing: -0.01em;
-    color: var(--color-navy-950);
+    color: var(--color-ink-950);
   }
 
   /* Consistent, visible focus ring for keyboard users — never remove without replacing */
   :focus-visible {
-    outline: 2px solid var(--color-brand-red-500);
+    outline: 2px solid var(--color-primary-600);
     outline-offset: 2px;
   }
 
   ::selection {
-    background-color: var(--color-navy-900);
+    background-color: var(--color-ink-900);
     color: var(--color-paper);
   }
 }

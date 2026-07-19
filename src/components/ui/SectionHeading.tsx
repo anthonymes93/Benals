@@ -32,7 +32,7 @@ export function SectionHeading({
         <p
           className={cn(
             'mb-3 text-sm font-semibold tracking-wide uppercase',
-            inverse ? 'text-brand-red-400' : 'text-brand-red-600',
+            inverse ? 'text-primary-400' : 'text-primary-600',
           )}
         >
           {eyebrow}
@@ -50,7 +50,7 @@ export function SectionHeading({
         <p
           className={cn(
             'mt-4 text-base leading-relaxed sm:text-lg',
-            inverse ? 'text-navy-100' : 'text-neutral-600',
+            inverse ? 'text-ink-100' : 'text-ink-600',
           )}
         >
           {description}

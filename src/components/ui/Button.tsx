@@ -8,14 +8,14 @@ import { Link } from 'react-router-dom';
 import { cn } from '@/lib/cn';
 
 const VARIANT_STYLES = {
-  primary: 'bg-navy-900 text-white hover:bg-navy-800 active:bg-navy-950',
+  primary: 'bg-ink-900 text-white hover:bg-ink-800 active:bg-ink-950',
   accent:
-    'bg-brand-red-600 text-white hover:bg-brand-red-700 active:bg-brand-red-700',
+    'bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-700',
   outline:
-    'border border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white',
+    'border border-ink-900 text-ink-900 hover:bg-ink-900 hover:text-white',
   outlineInverse:
-    'border border-white/70 text-white hover:bg-white hover:text-navy-900',
-  ghost: 'text-navy-900 hover:bg-navy-50',
+    'border border-white/70 text-white hover:bg-white hover:text-ink-900',
+  ghost: 'text-ink-900 hover:bg-ink-50',
 } as const;
 
 const SIZE_STYLES = {

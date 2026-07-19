@@ -13,7 +13,7 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 h-16 border-b border-neutral-200 bg-white/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 h-16 border-b border-ink-200 bg-white/95 backdrop-blur-sm">
       <Container className="flex h-full items-center justify-between">
         <Logo />
 
@@ -25,8 +25,8 @@ export function Header() {
                   to={item.href}
                   className={({ isActive }) =>
                     cn(
-                      'block rounded-md px-3.5 py-2 text-[15px] font-medium text-neutral-700 transition-colors hover:text-navy-950',
-                      isActive && 'text-navy-950',
+                      'block rounded-md px-3.5 py-2 text-[15px] font-medium text-ink-700 transition-colors hover:text-ink-950',
+                      isActive && 'text-ink-950',
                     )
                   }
                 >
@@ -40,7 +40,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <a
             href={siteConfig.phone.href}
-            className="hidden items-center gap-1.5 text-[15px] font-semibold text-navy-950 hover:text-brand-red-600 sm:flex"
+            className="hidden items-center gap-1.5 text-[15px] font-semibold text-ink-950 hover:text-primary-600 sm:flex"
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
             {siteConfig.phone.display}
@@ -51,7 +51,7 @@ export function Header() {
 
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-navy-950 lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-ink-950 lg:hidden"
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}

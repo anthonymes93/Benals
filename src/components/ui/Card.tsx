@@ -25,9 +25,9 @@ export function Card<T extends ElementType = 'div'>({
   return (
     <Tag
       className={cn(
-        'rounded-xl border border-neutral-200 bg-white p-6 shadow-sm',
+        'rounded-xl border border-ink-200 bg-white p-6 shadow-sm',
         interactive &&
-          'transition-shadow duration-150 hover:shadow-md hover:border-neutral-300',
+          'transition-shadow duration-150 hover:shadow-md hover:border-tertiary-200',
         className,
       )}
       {...rest}

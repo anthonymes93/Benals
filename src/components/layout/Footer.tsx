@@ -9,12 +9,12 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-navy-800 bg-navy-950 text-navy-100">
+    <footer className="border-t border-ink-800 bg-ink-950 text-ink-100">
       <Container className="py-14 sm:py-16">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <Logo inverse />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-navy-200">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-200">
               {siteConfig.description}
             </p>
           </div>
@@ -26,7 +26,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {primaryNav.map((item) => (
                 <li key={item.href}>
-                  <a href={item.href} className="text-sm text-navy-200 hover:text-white">
+                  <a href={item.href} className="text-sm text-ink-200 hover:text-white">
                     {item.label}
                   </a>
                 </li>
@@ -41,7 +41,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {services.slice(0, 5).map((service) => (
                 <li key={service.slug}>
-                  <a href="/services" className="text-sm text-navy-200 hover:text-white">
+                  <a href="/services" className="text-sm text-ink-200 hover:text-white">
                     {service.title}
                   </a>
                 </li>
@@ -53,7 +53,7 @@ export function Footer() {
             <h2 className="text-sm font-semibold tracking-wide text-white uppercase">
               Get in Touch
             </h2>
-            <ul className="mt-4 space-y-3 text-sm text-navy-200">
+            <ul className="mt-4 space-y-3 text-sm text-ink-200">
               <li>
                 <a
                   href={siteConfig.phone.href}
@@ -80,7 +80,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-navy-300 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-ink-300 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {siteConfig.name}. All rights reserved.
           </p>

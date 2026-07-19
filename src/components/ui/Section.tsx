@@ -5,8 +5,8 @@ import { Container } from '@/components/ui/Container';
 const BACKGROUND_STYLES = {
   paper: 'bg-paper',
   white: 'bg-white',
-  navy: 'bg-navy-950 text-white',
-  tint: 'bg-navy-50',
+  dark: 'bg-ink-950 text-white',
+  tint: 'bg-ink-50',
 } as const;
 
 interface SectionProps {

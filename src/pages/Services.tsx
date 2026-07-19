@@ -2,10 +2,14 @@ import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { Badge } from '@/components/ui/Badge';
 import { CTASection } from '@/components/sections/CTASection';
 import { Image } from '@/components/common/Image';
 import { services } from '@/data/services';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+
+/** The one commercial-facing service — called out with a badge to help business owners spot it. */
+const COMMERCIAL_SLUGS = new Set(['commercial-build-outs']);
 
 export function Services() {
   useDocumentTitle('Services');
@@ -37,15 +41,20 @@ export function Services() {
                   </div>
                 </div>
                 <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-navy-50 text-navy-800">
-                    <Icon className="h-6 w-6" aria-hidden="true" />
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary-50 text-primary-600">
+                      <Icon className="h-6 w-6" aria-hidden="true" />
+                    </div>
+                    {COMMERCIAL_SLUGS.has(service.slug) ? (
+                      <Badge tone="secondary">Commercial</Badge>
+                    ) : null}
                   </div>
-                  <h2 className="mt-5 text-2xl text-navy-950">{service.title}</h2>
-                  <p className="mt-3 leading-relaxed text-neutral-600">{service.description}</p>
+                  <h2 className="mt-5 text-2xl text-ink-950">{service.title}</h2>
+                  <p className="mt-3 leading-relaxed text-ink-600">{service.description}</p>
                   <ul className="mt-5 space-y-2">
                     {service.highlights.map((highlight) => (
-                      <li key={highlight} className="flex items-start gap-2.5 text-[15px] text-neutral-700">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-red-500" aria-hidden="true" />
+                      <li key={highlight} className="flex items-start gap-2.5 text-[15px] text-ink-700">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary-500" aria-hidden="true" />
                         {highlight}
                       </li>
                     ))}
