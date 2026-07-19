@@ -42,7 +42,7 @@ export function Services() {
                 </div>
                 <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary-50 text-primary-600">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-tertiary-50 text-tertiary-600">
                       <Icon className="h-6 w-6" aria-hidden="true" />
                     </div>
                     {COMMERCIAL_SLUGS.has(service.slug) ? (

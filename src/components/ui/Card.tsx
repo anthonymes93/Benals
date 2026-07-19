@@ -27,7 +27,7 @@ export function Card<T extends ElementType = 'div'>({
       className={cn(
         'rounded-xl border border-ink-200 bg-white p-6 shadow-sm',
         interactive &&
-          'transition-shadow duration-150 hover:shadow-md hover:border-tertiary-200',
+          'transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md hover:border-tertiary-200',
         className,
       )}
       {...rest}

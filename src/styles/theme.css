@@ -48,6 +48,19 @@
   --color-primary-900: #442009;
   --color-primary-950: #2c1406;
 
+  /* CTA gradient — a deliberately vivid, fully-saturated orange→hot-pink pair
+     used ONLY by the primary Button gradient, not the general primary/
+     tertiary scales above. The rest of the site (icons, badges, links,
+     eyebrows) stays on the softer, muted primary and tertiary tones; this
+     pair exists specifically to make the main call-to-action button the
+     brightest, most attention-grabbing element on the page. Both base stops
+     hold >=4.7:1 against white text across the full gradient (checked at
+     25/50/75% blends, not just the endpoints); hover stops hold >=4.5:1. */
+  --color-cta-orange: #cd4400;
+  --color-cta-orange-bright: #d34600;
+  --color-cta-pink: #e00078;
+  --color-cta-pink-bright: #e6007a;
+
   /* Secondary accent — steel blue. Used sparingly alongside orange: alternate
      icon fills, secondary badges, secondary interactive states. */
   --color-secondary-50: #eef5fb;
@@ -63,7 +76,8 @@
   --color-secondary-950: #0d1e2c;
 
   /* Tertiary accent — muted dusty rose. Sparing use only: small badges,
-     decorative accents, hover states. Never a primary CTA color. */
+     decorative accents, hover states. Not used in the CTA gradient — see
+     --color-cta-pink above for that. */
   --color-tertiary-50: #fbf0f1;
   --color-tertiary-100: #f5dfe1;
   --color-tertiary-200: #eac0c4;
