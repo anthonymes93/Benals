@@ -12,7 +12,7 @@ export function Contact() {
       <PageHeader
         eyebrow="Contact"
         title="Tell us about your project"
-        description="Call for the fastest response, or send the details below and we'll get back to you within one business day."
+        description="Call for the fastest response, or send the details below and we'll get back to you as soon as we can — usually within a business day or two."
       />
 
       <Section background="paper">

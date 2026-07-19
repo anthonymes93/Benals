@@ -30,7 +30,7 @@ export function CTASection({
             Call {siteConfig.phone.display}
           </Button>
           <Button href="/contact" variant="outlineInverse" size="lg">
-            Get a Free Estimate
+            Request a Free Estimate
           </Button>
         </div>
       </div>

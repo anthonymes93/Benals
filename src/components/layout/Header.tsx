@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { primaryNav } from '@/data/navigation';
@@ -11,6 +11,13 @@ import { cn } from '@/lib/cn';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  function closeMenu() {
+    setIsMenuOpen(false);
+    // Return focus to the trigger so keyboard users aren't dropped onto <body>.
+    menuButtonRef.current?.focus();
+  }
 
   return (
     <header className="sticky top-0 z-50 h-16 border-b border-ink-200 bg-white/95 backdrop-blur-sm">
@@ -50,6 +57,7 @@ export function Header() {
           </Button>
 
           <button
+            ref={menuButtonRef}
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-md text-ink-950 lg:hidden"
             aria-expanded={isMenuOpen}
@@ -66,7 +74,7 @@ export function Header() {
         </div>
       </Container>
 
-      <MobileNav isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      <MobileNav isOpen={isMenuOpen} onClose={closeMenu} />
     </header>
   );
 }

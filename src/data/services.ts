@@ -1,26 +1,21 @@
-import {
-  Hammer,
-  Home,
-  ChefHat,
-  Layers,
-  Fence,
-  Building2,
-} from 'lucide-react';
-import type { Service } from '@/types';
+import { Hammer, Home, Layers, KeyRound, Building2, Fence, Wrench } from 'lucide-react';
+import type { ServiceCategory } from '@/types';
 
 /**
- * Service catalogue. This list drives the homepage preview grid and the
- * services page. To add a service, add an entry here — to give it its own
- * page later, add a route that reads the slug (see src/routes).
+ * Service categories. This list drives the homepage category grid and the
+ * Services page sections — both read from the same array, so a new category
+ * only needs to be added here once. Each `slug` is also the anchor id on the
+ * Services page (/services#slug); see src/types for notes on turning a
+ * category into its own route later.
  */
-export const services: Service[] = [
+export const serviceCategories: ServiceCategory[] = [
   {
-    slug: 'home-renovations',
-    title: 'Home Renovations',
+    slug: 'renovations-interior',
+    title: 'Renovations & Interior Improvements',
     summary:
-      'Full interior updates, from a single room to a whole-house overhaul.',
+      'Full or partial renovations for any room in the house — kitchens, bathrooms, basements, and everything between.',
     description:
-      "Whether you're updating one room or reworking the whole layout, we plan the job around how your home actually needs to function, then walk you through the sequence before any wall comes down. You get a clear scope, a realistic timeline, and one crew that sees it through.",
+      "Most renovation projects start with one room and grow from there once you see what's possible. We handle whole-home renovations and single-room updates the same way: plan the layout around how you actually live, protect the rest of the house while we work, and finish with materials that hold up. Interior design support is available if you want help choosing finishes.",
     icon: Hammer,
     image: {
       src: 'https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=1200&q=80',
@@ -28,19 +23,23 @@ export const services: Service[] = [
       width: 1200,
       height: 800,
     },
-    highlights: [
-      'Layout changes and structural work',
-      'Flooring, trim, and finish carpentry',
-      'Permit handling and inspection scheduling',
+    items: [
+      'Home renovations',
+      'Whole-home renovations',
+      'Kitchen renovations',
+      'Bathroom renovations',
+      'Basement renovations',
+      'Interior renovations',
+      'Interior design',
+      'General home improvements',
     ],
   },
   {
-    slug: 'additions-extensions',
-    title: 'Additions & Extensions',
-    summary:
-      'Extra square footage that matches your home instead of looking bolted on.',
+    slug: 'construction-additions',
+    title: 'Construction & Additions',
+    summary: 'Additions and new builds, from early planning through the final walkthrough.',
     description:
-      "Adding on to a house means tying new framing, rooflines, and siding into something that was already built — and getting it to look like it was always there. We handle the structural side and the finish work under one roof, so the addition reads as part of the house, not an afterthought.",
+      "Whether you're adding a second storey, building a custom home, or need a hand managing a private build from the ground up, we handle the structural work and the finishing under one roof. We're involved from the planning stage — drawings, permits, sequencing — through to completion, so the project has one point of contact the whole way.",
     icon: Home,
     image: {
       src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
@@ -48,37 +47,20 @@ export const services: Service[] = [
       width: 1200,
       height: 800,
     },
-    highlights: [
-      'Second-storey and rear additions',
-      'Roofline and exterior matching',
-      'Engineering coordination where required',
+    items: [
+      'Home additions',
+      'Custom home building',
+      'Private home-building assistance',
+      'Design and build',
+      'Planning through completion',
     ],
   },
   {
-    slug: 'kitchen-bathroom-remodels',
-    title: 'Kitchen & Bathroom Remodels',
-    summary: 'The two rooms that get used hardest, rebuilt to hold up.',
+    slug: 'legal-basement-apartments',
+    title: 'Legal Basement Apartments',
+    summary: 'Basement conversions and legal secondary suites, coordinated from planning to permits.',
     description:
-      "Kitchens and bathrooms carry more plumbing, electrical, and daily wear than any other room in the house, so sequencing matters. We coordinate the trades, protect the rest of your home from dust and disruption, and keep you posted on what's happening and when.",
-    icon: ChefHat,
-    image: {
-      src: 'https://images.unsplash.com/photo-1602028915047-37269d1a73f7?auto=format&fit=crop&w=1200&q=80',
-      alt: 'Modern kitchen with a large island and pendant lighting',
-      width: 1200,
-      height: 800,
-    },
-    highlights: [
-      'Cabinetry, countertops, and tile work',
-      'Plumbing and electrical coordination',
-      'Layout redesign for better flow',
-    ],
-  },
-  {
-    slug: 'basement-finishing',
-    title: 'Basement Finishing',
-    summary: 'Turning unused space into a room you actually spend time in.',
-    description:
-      "A finished basement is only as good as what's behind the drywall. We start with moisture control and proper insulation, then build out the space, whether that's a rec room, a home office, or a self-contained suite.",
+      "Turning a basement into a legal apartment involves more than finishing the space — it means meeting building code for egress, ceiling height, fire separation, and more. We coordinate the permit and inspection process alongside the construction, and work with investment property owners who need the unit done right the first time.",
     icon: Layers,
     image: {
       src: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80',
@@ -86,37 +68,43 @@ export const services: Service[] = [
       width: 1200,
       height: 800,
     },
-    highlights: [
-      'Moisture control and proper insulation',
-      'Framing, electrical, and drywall',
-      'Legal secondary suite build-outs',
+    items: [
+      'Legal basement apartment construction',
+      'Basement conversions',
+      'Permit-related project coordination',
+      'Investment property improvements',
+      'Planning through completion',
     ],
+    note: "Permit approval and timelines are set by the municipality, not by us. We coordinate the process closely, but we can't guarantee approval or a specific date.",
   },
   {
-    slug: 'decks-outdoor-structures',
-    title: 'Decks & Outdoor Structures',
-    summary: 'Built for Niagara winters, not just one good summer.',
+    slug: 'airbnb-rental-properties',
+    title: 'Airbnb & Rental Properties',
+    summary: 'Design, renovation, and upkeep for short-term rentals and long-term rental properties.',
     description:
-      "A deck or structure that's built to handle freeze-thaw cycles year after year needs the right footings and materials from the start. We build decks, porches, and outdoor structures sized and detailed for how you'll actually use the space.",
-    icon: Fence,
+      "Rental properties get used hard, whether it's a weekend Airbnb turnover or a long-term tenancy. We design and build spaces meant for that kind of use, renovate between tenants or bookings, and handle the repairs that come up along the way. For landlords managing multiple units, we can take ongoing maintenance off your plate.",
+    icon: KeyRound,
     image: {
-      src: 'https://images.unsplash.com/photo-1489514354504-1653aa90e34e?auto=format&fit=crop&w=1200&q=80',
-      alt: 'Crew member setting rebar for an outdoor structure',
+      src: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80',
+      alt: 'Renovated bathroom with a glass shower, styled for a rental property',
       width: 1200,
       height: 800,
     },
-    highlights: [
-      'Frost-depth footings for our climate',
-      'Composite and pressure-treated options',
-      'Railings, pergolas, and covered porches',
+    items: [
+      'Airbnb design and build',
+      'Short-term rental renovations',
+      'Rental property renovations',
+      'Tenant-related repairs',
+      'Property improvements between tenants',
+      'Landlord property maintenance',
     ],
   },
   {
-    slug: 'commercial-build-outs',
-    title: 'Commercial Build-Outs',
-    summary: 'Interior fit-outs for retail, office, and hospitality spaces.',
+    slug: 'commercial-institutional',
+    title: 'Commercial & Institutional Projects',
+    summary: 'Renovations for offices, medical spaces, schools, and other commercial interiors.',
     description:
-      "Commercial work runs on a schedule, usually with a business trying to open, reopen, or keep operating around it. We plan the sequence to minimize downtime and keep you updated as the job moves, so there are no surprises before opening day.",
+      "Commercial spaces come with their own scheduling pressure — a business trying to stay open, a medical office that can't sit empty, a school working around the calendar. We take on office renovations, medical and doctor's office fit-outs, waiting rooms, and other institutional interiors, and can schedule evening or weekend work when that's what keeps a space running. Every project moves through the same planning-to-completion process, so there are no surprises before opening day.",
     icon: Building2,
     image: {
       src: 'https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&w=1200&q=80',
@@ -124,14 +112,64 @@ export const services: Service[] = [
       width: 1200,
       height: 800,
     },
-    highlights: [
-      'Retail, office, and restaurant fit-outs',
-      'Scheduling built around your opening date',
-      'Code compliance and inspection coordination',
+    items: [
+      'Commercial renovations',
+      'Commercial spaces',
+      'Office renovations',
+      "Medical and doctor's office renovations",
+      'Waiting-room renovations',
+      'School renovations',
+      'Weekend renovation scheduling where appropriate',
+      'Interior commercial improvements',
+      'Planning through completion',
+    ],
+  },
+  {
+    slug: 'outdoor-projects',
+    title: 'Outdoor Projects',
+    summary: 'Decks, patios, and outdoor living spaces built for the Niagara climate.',
+    description:
+      'A deck or patio gets more use when it\'s actually built for how you plan to use it — and built to handle our winters. We design, build, and install outdoor structures and living spaces, from a straightforward deck to a more involved backyard project.',
+    icon: Fence,
+    image: {
+      src: 'https://images.unsplash.com/photo-1489514354504-1653aa90e34e?auto=format&fit=crop&w=1200&q=80',
+      alt: 'Crew member setting rebar for an outdoor structure',
+      width: 1200,
+      height: 800,
+    },
+    items: [
+      'Decks',
+      'Patios',
+      'Outdoor structures',
+      'Outdoor living improvements',
+      'Design, build, and installation',
+    ],
+  },
+  {
+    slug: 'property-maintenance-repairs',
+    title: 'Property Maintenance & Repairs',
+    summary: 'General repairs and ongoing maintenance for homes and commercial properties.',
+    description:
+      "Not every job is a full renovation. We also take on smaller work — drywall repair and finishing, general repairs, and ongoing maintenance for both homes and commercial properties. It's a reliable way to keep a property in good shape without waiting for a bigger project to justify the call.",
+    icon: Wrench,
+    image: {
+      src: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80',
+      alt: 'Cleaning and maintaining a window as part of routine property upkeep',
+      width: 1200,
+      height: 800,
+    },
+    items: [
+      'Property maintenance',
+      'General repairs',
+      'Ongoing maintenance',
+      'Drywall',
+      'Drywall finishing',
+      'Small renovations',
+      'Interior and exterior property improvements',
     ],
   },
 ];
 
-export function getServiceBySlug(slug: string): Service | undefined {
-  return services.find((service) => service.slug === slug);
+export function getCategoryBySlug(slug: string): ServiceCategory | undefined {
+  return serviceCategories.find((category) => category.slug === slug);
 }

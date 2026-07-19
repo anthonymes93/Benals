@@ -1,4 +1,4 @@
-import { ShieldCheck, MessageSquare, CalendarClock, MapPin } from 'lucide-react';
+import { Wallet, MessageSquare, CalendarClock, MapPin } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -20,28 +20,28 @@ interface WhyUsPoint {
 
 const DEFAULT_POINTS: WhyUsPoint[] = [
   {
-    icon: ShieldCheck,
-    title: 'Licensed and insured',
-    description:
-      "You're covered if something goes wrong, and we carry the paperwork to prove it before work starts.",
-  },
-  {
     icon: MessageSquare,
     title: 'Straight answers',
     description:
-      "We tell you what a job actually involves, what it costs, and when it'll be done — before you commit to anything.",
+      "You'll get a reliable, honest answer about cost, timeline, and what the job actually involves — before you commit to anything.",
   },
   {
     icon: CalendarClock,
     title: 'Schedules we keep',
     description:
-      'One crew sees your project through. No disappearing for two weeks partway through the job.',
+      'One crew sees your project through, start to finish. No disappearing for two weeks partway through the job.',
+  },
+  {
+    icon: Wallet,
+    title: 'Budget-conscious planning',
+    description:
+      'We plan carefully so your money goes into the work itself, not into fixing avoidable mistakes.',
   },
   {
     icon: MapPin,
     title: 'Local to Niagara',
     description:
-      'We know the building codes, the permit offices, and the weather here, because we work in it every day.',
+      'We know the area and the trades who work in it, because this is where we work every day.',
   },
 ];
 

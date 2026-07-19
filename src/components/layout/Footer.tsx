@@ -2,7 +2,7 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Logo } from '@/components/common/Logo';
 import { primaryNav } from '@/data/navigation';
-import { services } from '@/data/services';
+import { serviceCategories } from '@/data/services';
 import { siteConfig } from '@/data/siteConfig';
 
 export function Footer() {
@@ -39,10 +39,10 @@ export function Footer() {
               Services
             </h2>
             <ul className="mt-4 space-y-2.5">
-              {services.slice(0, 5).map((service) => (
-                <li key={service.slug}>
-                  <a href="/services" className="text-sm text-ink-200 hover:text-white">
-                    {service.title}
+              {serviceCategories.map((category) => (
+                <li key={category.slug}>
+                  <a href={`/services#${category.slug}`} className="text-sm text-ink-200 hover:text-white">
+                    {category.title}
                   </a>
                 </li>
               ))}

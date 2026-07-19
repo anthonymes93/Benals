@@ -11,7 +11,7 @@ export function ContactInfoCard() {
         <li className="flex items-start gap-3">
           <Phone className="mt-0.5 h-5 w-5 shrink-0 text-primary-400" aria-hidden="true" />
           <div>
-            <p className="text-sm text-ink-200">Call or text</p>
+            <p className="text-sm text-ink-200">Call</p>
             <a href={siteConfig.phone.href} className="font-semibold text-white hover:underline">
               {siteConfig.phone.display}
             </a>

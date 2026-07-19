@@ -13,17 +13,44 @@ export interface NavItem {
   href: string;
 }
 
-export interface Service {
+/**
+ * A high-level service category (e.g. "Renovations & Interior Improvements").
+ * Each category groups several related services under one card/section
+ * rather than every individual service getting its own page. `slug` doubles
+ * as the anchor id on the Services page (#slug) and is stable enough to
+ * become a dedicated route (/services/slug) later without touching this
+ * shape — a future single-service page just needs a new route that reads
+ * `getCategoryBySlug` and, if it needs more detail than `items` provides,
+ * an additional optional field here.
+ */
+export interface ServiceCategory {
   slug: string;
   title: string;
-  /** One-line summary used on cards and previews. */
+  /** One-line summary used on homepage cards and previews. */
   summary: string;
   /** Longer description used on the services page. */
   description: string;
   icon: LucideIcon;
   image: ImageAsset;
-  /** Short bullet list of what's included. */
-  highlights: string[];
+  /** Individual services included in this category. */
+  items: string[];
+  /** Optional short disclaimer shown under the category (e.g. permit timelines vary). */
+  note?: string;
+}
+
+export const GALLERY_CATEGORIES = [
+  'Renovations',
+  'Kitchens & Bathrooms',
+  'Basements',
+  'Outdoor',
+  'Commercial',
+  'Property Improvements',
+] as const;
+
+export type GalleryCategory = (typeof GALLERY_CATEGORIES)[number];
+
+export interface GalleryImage extends ImageAsset {
+  category: GalleryCategory;
 }
 
 export interface ContactFormValues {

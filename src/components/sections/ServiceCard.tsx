@@ -1,26 +1,28 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Card } from '@/components/ui/Card';
-import type { Service } from '@/types';
+import type { ServiceCategory } from '@/types';
 
 interface ServiceCardProps {
-  service: Service;
+  category: ServiceCategory;
 }
 
-export function ServiceCard({ service }: ServiceCardProps) {
-  const Icon = service.icon;
+/** Clickable category card — links straight to that category's section on the Services page. */
+export function ServiceCard({ category }: ServiceCardProps) {
+  const Icon = category.icon;
 
   return (
     <Card as="article" interactive className="flex h-full flex-col">
       <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-tertiary-50 text-tertiary-600">
         <Icon className="h-6 w-6" aria-hidden="true" />
       </div>
-      <h3 className="mt-5 text-xl text-ink-950">{service.title}</h3>
+      <h3 className="mt-5 text-xl text-ink-950">{category.title}</h3>
       <p className="mt-2.5 flex-1 text-[15px] leading-relaxed text-ink-600">
-        {service.summary}
+        {category.summary}
       </p>
       <Link
-        to="/services"
+        to={`/services#${category.slug}`}
+        aria-label={`See services included in ${category.title}`}
         className="group mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-ink-800 hover:text-tertiary-600"
       >
         Learn more
