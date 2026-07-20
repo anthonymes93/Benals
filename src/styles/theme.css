@@ -31,7 +31,7 @@
   --color-ink-700: #3d372f;
   --color-ink-800: #2a2521;
   --color-ink-900: #1c1815;
-  --color-ink-950: #120f0d;
+  --color-ink-950: #010f29;
 
   /* Primary accent — warm terracotta orange. Main CTAs, links, icon fills,
      eyebrow labels, focus ring. primary-500 is AA for large text/decorative
@@ -111,7 +111,11 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    /* No global smooth-scroll: it also animates React Router's scroll-to-top
+       on page navigation, which on a long page can take a second or more and
+       look like the new page loaded scrolled to the wrong spot. The one place
+       we want an animated scroll (the Services page's in-page category nav)
+       requests it explicitly via scrollIntoView({ behavior: 'smooth' }). */
     -webkit-text-size-adjust: 100%;
   }
 

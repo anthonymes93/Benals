@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Logo } from '@/components/common/Logo';
@@ -6,8 +7,6 @@ import { serviceCategories } from '@/data/services';
 import { siteConfig } from '@/data/siteConfig';
 
 export function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="border-t border-ink-800 bg-ink-950 text-ink-100">
       <Container className="py-14 sm:py-16">
@@ -26,9 +25,9 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {primaryNav.map((item) => (
                 <li key={item.href}>
-                  <a href={item.href} className="text-sm text-ink-200 hover:text-white">
+                  <Link to={item.href} className="text-sm text-ink-200 hover:text-white">
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -41,9 +40,12 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {serviceCategories.map((category) => (
                 <li key={category.slug}>
-                  <a href={`/services#${category.slug}`} className="text-sm text-ink-200 hover:text-white">
+                  <Link
+                    to={`/services#${category.slug}`}
+                    className="text-sm text-ink-200 hover:text-white"
+                  >
                     {category.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -82,7 +84,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-ink-300 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} {siteConfig.name}. All rights reserved.
+            Built by <a href="https://anthonymeszaros.com">Anthony Meszaros</a>
           </p>
           <p>Proudly serving {siteConfig.location.areasServed.slice(0, 3).join(', ')}, and beyond.</p>
         </div>
