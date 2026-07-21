@@ -76,23 +76,47 @@ export function About() {
             />
             <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-ink-600">
               <p>
-                Benals Construction is a family-run general contractor based in the Niagara
-                Region. We take on renovations, additions, and property improvement projects for
-                homeowners, landlords, and businesses — and we run the business the way you'd
-                want a contractor to: straight answers, budget-conscious planning, and a crew
-                that shows up when it says it will.
+                Benals Construction is a family-run general contractor proudly serving
+                homeowners, landlords, and businesses throughout the Niagara Region. We
+                specialize in renovations, additions, property maintenance, and a wide range of
+                residential and commercial construction projects. Whether it's a small
+                improvement or a larger renovation, we approach every job with honest
+                communication, practical planning, and reliable workmanship.
+              </p>
+              <p>
+                We believe a great project starts with trust. That's why we focus on straight
+                answers, realistic expectations, and budget-conscious planning. We always look
+                for ways to help our clients get the best value, from sourcing quality materials
+                at competitive prices to working with trusted tradespeople we've built
+                relationships with over the years. Our experience across many areas of
+                construction allows us to coordinate projects efficiently while maintaining high
+                standards of workmanship.
+              </p>
+              <p>
+                As a family-run business, we believe in treating every customer with respect. We
+                know your time is valuable, so we work hard to stay organized, communicate
+                clearly, and complete projects as efficiently as possible without compromising
+                quality. Our friendly crew takes pride in keeping job sites professional, treating
+                your home or business with care, and making the renovation process as smooth as
+                possible.
               </p>
               <p>
                 That family-first approach isn't just a tagline. It's why we keep the number of
-                active jobs manageable, why we stay with a project from the first site visit to
-                the final walkthrough, and why you'll always know who to call with a question.
+                active projects manageable, stay involved from the first site visit through the
+                final walkthrough, and make sure you'll always know who to call if you have a
+                question. Benals Construction is named after Kyle's grandchildren — Ben, Alex, and
+                Serena — a reminder that the business is built on family values, honesty, and work
+                we're proud to stand behind.
               </p>
               <p>
-                We work throughout {siteConfig.location.areasServed.slice(0, 4).join(', ')}, and
-                the surrounding area — if you're not sure whether your project is in range, just
-                ask.
-<br /><br />
-                <p><b>35+ years of residential and commercial construction experience.</b></p>
+                Born and raised in the Niagara Region, Kyle has spent his life building
+                relationships within the local community. We're proud to serve{' '}
+                {siteConfig.location.areasServed.slice(0, 4).join(', ')}, and the surrounding area.
+                If you're not sure whether your project falls within our service area, just ask —
+                we're always happy to help.
+              </p>
+              <p className="font-semibold text-ink-800">
+                35+ years of residential and commercial construction experience.
               </p>
             </div>
           </div>
@@ -109,7 +133,7 @@ export function About() {
           title="Ben, Alex, and Serena"
           description={
             <>
-              The name Benals Construction comes from the owner's three grandchildren — Ben,
+              The name Benals Construction comes from owner Kyle's three grandchildren — Ben,
               Alex, and Serena. It's a small detail, but it says a lot about how this business is
               run: family comes first, and that same care carries through to every client and
               every project. The grandchildren even had a hand in the branding — the orange,
