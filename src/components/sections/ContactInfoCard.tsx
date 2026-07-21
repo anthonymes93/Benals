@@ -1,4 +1,4 @@
-import { Phone, Mail, Clock, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { siteConfig } from '@/data/siteConfig';
 
@@ -24,19 +24,6 @@ export function ContactInfoCard() {
             <a href={`mailto:${siteConfig.email}`} className="font-semibold text-white hover:underline">
               {siteConfig.email}
             </a>
-          </div>
-        </li>
-        <li className="flex items-start gap-3">
-          <Clock className="mt-0.5 h-5 w-5 shrink-0 text-primary-400" aria-hidden="true" />
-          <div>
-            <p className="text-sm text-ink-200">Hours</p>
-            <ul className="text-white">
-              {siteConfig.hours.map((entry) => (
-                <li key={entry.days}>
-                  {entry.days}: {entry.time}
-                </li>
-              ))}
-            </ul>
           </div>
         </li>
         <li className="flex items-start gap-3">

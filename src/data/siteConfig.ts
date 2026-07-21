@@ -2,9 +2,9 @@
  * Central business information.
  *
  * ⚠️ PLACEHOLDER VALUES — every value below is a temporary stand-in, not
- * confirmed client information. `phone`, `email`, and `hours` all need to be
- * replaced with the real details before launch; nothing else in the codebase
- * needs to change when you do, since every page reads from here.
+ * confirmed client information. `phone` and `email` need to be replaced with
+ * the real details before launch; nothing else in the codebase needs to
+ * change when you do, since every page reads from here.
  */
 export const siteConfig = {
   name: 'Benals Construction',
@@ -15,11 +15,11 @@ export const siteConfig = {
 
   /** PLACEHOLDER — replace with the real business line before launch. */
   phone: {
-    display: '(905) 555-0142',
-    href: 'tel:+19055550142',
+    display: '(905) 394-2408',
+    href: 'tel:+19053942408',
   },
   /** PLACEHOLDER — replace with the real business email before launch. */
-  email: 'info@benalsconstruction.ca',
+  email: 'benalsconstruction@gmail.com',
 
   location: {
     region: 'Niagara Region, Ontario',
@@ -34,13 +34,6 @@ export const siteConfig = {
       'Grimsby',
     ],
   },
-
-  /** PLACEHOLDER — replace with the real business hours before launch. */
-  hours: [
-    { days: 'Monday – Friday', time: '7:30 AM – 5:00 PM' },
-    { days: 'Saturday', time: 'By appointment' },
-    { days: 'Sunday', time: 'Closed' },
-  ],
 
   social: {
     facebook: '',
