@@ -1,28 +1,28 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Card } from '@/components/ui/Card';
-import type { ServiceCategory } from '@/types';
+import type { Service } from '@/types';
 
 interface ServiceCardProps {
-  category: ServiceCategory;
+  service: Service;
 }
 
-/** Clickable category card — links straight to that category's section on the Services page. */
-export function ServiceCard({ category }: ServiceCardProps) {
-  const Icon = category.icon;
+/** Clickable service card — links straight to that service's section on the Services page. */
+export function ServiceCard({ service }: ServiceCardProps) {
+  const Icon = service.icon;
 
   return (
     <Card as="article" interactive className="flex h-full flex-col">
       <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-tertiary-50 text-tertiary-600">
         <Icon className="h-6 w-6" aria-hidden="true" />
       </div>
-      <h3 className="mt-5 text-xl text-ink-950">{category.title}</h3>
+      <h3 className="mt-5 text-xl text-ink-950">{service.title}</h3>
       <p className="mt-2.5 flex-1 text-[15px] leading-relaxed text-ink-600">
-        {category.summary}
+        {service.shortDescription}
       </p>
       <Link
-        to={`/services#${category.slug}`}
-        aria-label={`See services included in ${category.title}`}
+        to={`/services#${service.slug}`}
+        aria-label={`Learn more about ${service.title}`}
         className="group mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-ink-800 hover:text-tertiary-600"
       >
         Learn more

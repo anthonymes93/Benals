@@ -1,15 +1,15 @@
 import { ServiceCard } from '@/components/sections/ServiceCard';
-import type { ServiceCategory } from '@/types';
+import type { Service } from '@/types';
 
 interface ServicesGridProps {
-  categories: ServiceCategory[];
+  services: Service[];
 }
 
-export function ServicesGrid({ categories }: ServicesGridProps) {
+export function ServicesGrid({ services }: ServicesGridProps) {
   return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {categories.map((category) => (
-        <ServiceCard key={category.slug} category={category} />
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {services.map((service) => (
+        <ServiceCard key={service.slug} service={service} />
       ))}
     </div>
   );

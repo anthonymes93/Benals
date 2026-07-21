@@ -4,7 +4,7 @@ import { CheckCircle2, AlertTriangle } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { InputField, TextareaField, SelectField } from '@/components/ui/FormField';
-import { serviceCategories } from '@/data/services';
+import { services } from '@/data/services';
 import { siteConfig } from '@/data/siteConfig';
 import { submitContactForm } from '@/lib/contact';
 import type { ContactFormStatus, ContactFormValues } from '@/types';
@@ -118,9 +118,9 @@ export function ContactForm() {
           onChange={(event) => updateField('service', event.target.value)}
         >
           <option value="">Not sure yet</option>
-          {serviceCategories.map((category) => (
-            <option key={category.slug} value={category.title}>
-              {category.title}
+          {services.map((service) => (
+            <option key={service.slug} value={service.title}>
+              {service.title}
             </option>
           ))}
           <option value="Something else">Something else</option>

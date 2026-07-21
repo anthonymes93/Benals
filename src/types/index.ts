@@ -14,27 +14,28 @@ export interface NavItem {
 }
 
 /**
- * A high-level service category (e.g. "Renovations & Interior Improvements").
- * Each category groups several related services under one card/section
- * rather than every individual service getting its own page. `slug` doubles
- * as the anchor id on the Services page (#slug) and is stable enough to
- * become a dedicated route (/services/slug) later without touching this
- * shape — a future single-service page just needs a new route that reads
- * `getCategoryBySlug` and, if it needs more detail than `items` provides,
- * an additional optional field here.
+ * A single Benals Construction service. Every service is listed individually
+ * (no grouping into categories) and rendered in `order` on both the
+ * homepage grid and the Services page. `slug` doubles as the anchor id on
+ * the Services page (#slug) and is stable enough to become a dedicated route
+ * (/services/slug) later without touching this shape — a future
+ * single-service page just needs a new route that reads `getServiceBySlug`.
  */
-export interface ServiceCategory {
+export interface Service {
+  /** Stable unique identifier — currently mirrors `slug`. */
+  id: string;
   slug: string;
   title: string;
-  /** One-line summary used on homepage cards and previews. */
-  summary: string;
-  /** Longer description used on the services page. */
-  description: string;
+  /** Where this service sits in the confirmed display order (1-based). */
+  order: number;
   icon: LucideIcon;
-  image: ImageAsset;
-  /** Individual services included in this category. */
-  items: string[];
-  /** Optional short disclaimer shown under the category (e.g. permit timelines vary). */
+  /** One or two sentences — used on the homepage card. */
+  shortDescription: string;
+  /** Fuller description used on the Services page. */
+  longDescription: string;
+  /** Optional supporting bullet points, shown on the Services page only. */
+  bullets?: string[];
+  /** Optional short disclaimer shown on the Services page only (e.g. permit timelines vary). */
   note?: string;
 }
 

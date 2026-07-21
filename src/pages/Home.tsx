@@ -6,7 +6,7 @@ import { ServicesGrid } from '@/components/sections/ServicesGrid';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Button } from '@/components/ui/Button';
-import { serviceCategories } from '@/data/services';
+import { services } from '@/data/services';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 const HERO_IMAGE = {
@@ -33,15 +33,15 @@ export function Home() {
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
             eyebrow="What We Do"
-            title="Services organized around what you actually need"
-            description="Every project we take on falls into one of these categories — pick the one closest to yours to see what's included."
+            title="Services for homes and businesses across Niagara"
+            description="From property maintenance to full builds, here's the complete range of work we take on."
           />
           <Button href="/services" variant="outline" className="shrink-0">
             Explore Our Services
           </Button>
         </div>
         <div className="mt-12">
-          <ServicesGrid categories={serviceCategories} />
+          <ServicesGrid services={services} />
         </div>
       </Section>
 

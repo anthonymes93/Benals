@@ -3,8 +3,12 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Logo } from '@/components/common/Logo';
 import { primaryNav } from '@/data/navigation';
-import { serviceCategories } from '@/data/services';
+import { services } from '@/data/services';
 import { siteConfig } from '@/data/siteConfig';
+
+// Footer stays a fixed, glanceable height — link to the full list rather
+// than listing all 14 services here.
+const FOOTER_SERVICE_COUNT = 6;
 
 export function Footer() {
   return (
@@ -38,16 +42,21 @@ export function Footer() {
               Services
             </h2>
             <ul className="mt-4 space-y-2.5">
-              {serviceCategories.map((category) => (
-                <li key={category.slug}>
+              {services.slice(0, FOOTER_SERVICE_COUNT).map((service) => (
+                <li key={service.slug}>
                   <Link
-                    to={`/services#${category.slug}`}
+                    to={`/services#${service.slug}`}
                     className="text-sm text-ink-200 hover:text-white"
                   >
-                    {category.title}
+                    {service.title}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link to="/services" className="text-sm font-semibold text-white hover:text-tertiary-300">
+                  View All Services
+                </Link>
+              </li>
             </ul>
           </div>
 
