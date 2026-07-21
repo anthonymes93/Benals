@@ -91,6 +91,8 @@ export function About() {
                 We work throughout {siteConfig.location.areasServed.slice(0, 4).join(', ')}, and
                 the surrounding area — if you're not sure whether your project is in range, just
                 ask.
+<br /><br />
+                <p><b>35+ years of residential and commercial construction experience.</b></p>
               </p>
             </div>
           </div>

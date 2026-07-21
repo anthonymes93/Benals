@@ -22,11 +22,11 @@ export function Home() {
   return (
     <>
       <Hero
-        eyebrow="Niagara Region Construction & Renovation"
+        eyebrow="We have vision for your inspiration!"
         title="Reliable construction and renovation services for homes and businesses across Niagara."
         description="Benals Construction plans and builds renovation, construction, and property improvement projects — with straightforward communication from your first call to the final walkthrough."
         image={HERO_IMAGE}
-        trustPoints={['Residential & commercial projects', 'Serving all of Niagara Region', 'Free estimates']}
+        trustPoints={['Residential & commercial projects', 'Serving all of Niagara Region', 'Free estimates', 'Turn unused spaces into useable spaces']}
       />
 
       <Section background="tint">
