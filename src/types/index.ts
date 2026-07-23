@@ -39,21 +39,6 @@ export interface Service {
   note?: string;
 }
 
-export const GALLERY_CATEGORIES = [
-  'Renovations',
-  'Kitchens & Bathrooms',
-  'Basements',
-  'Outdoor',
-  'Commercial',
-  'Property Improvements',
-] as const;
-
-export type GalleryCategory = (typeof GALLERY_CATEGORIES)[number];
-
-export interface GalleryImage extends ImageAsset {
-  category: GalleryCategory;
-}
-
 export interface ContactFormValues {
   name: string;
   email: string;
