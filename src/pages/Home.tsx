@@ -1,3 +1,4 @@
+import heroPhoto from '@/assets/imgs/home/60d6a1e6-cc34-45cd-82f1-9540594cb672.jpeg';
 import { Hero } from '@/components/sections/Hero';
 import { WhyUsSection } from '@/components/sections/WhyUsSection';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
@@ -10,10 +11,10 @@ import { services } from '@/data/services';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 const HERO_IMAGE = {
-  src: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80',
-  alt: 'Tradesperson in a hard hat working on an electrical panel',
-  width: 1200,
-  height: 1200,
+  src: heroPhoto,
+  alt: 'Basement room mid-renovation with taped drywall, an open doorway, and renovation supplies on the floor',
+  width: 1536,
+  height: 2048,
 };
 
 export function Home() {

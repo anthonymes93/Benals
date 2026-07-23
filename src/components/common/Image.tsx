@@ -26,6 +26,6 @@ export function Image({ asset, className, lazy = true, ...rest }: ImageProps) {
       decoding="async"
       className={cn('h-full w-full object-cover', className)}
       {...rest}
-    />
+     style={{ objectFit: "cover", objectPosition: "50% 50%" }}/>
   );
 }
