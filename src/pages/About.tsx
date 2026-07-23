@@ -1,4 +1,9 @@
 import { Handshake, Users, Clock, Wrench } from 'lucide-react';
+import babyPhoto from '@/assets/imgs/about4/babyoldpic.jpeg';
+import threeKidsPhoto from '@/assets/imgs/about4/3kidsoldpic.jpeg';
+import familyPhoto from '@/assets/imgs/about4/kidsoldphoto.jpeg';
+import boyOnGrassPhoto from '@/assets/imgs/about4/boyongrass.jpeg';
+import grandkidsPhoto from '@/assets/imgs/3kidsbycar.jpeg';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -6,26 +11,49 @@ import { WhyUsSection } from '@/components/sections/WhyUsSection';
 import { CTASection } from '@/components/sections/CTASection';
 import { Image } from '@/components/common/Image';
 import { siteConfig } from '@/data/siteConfig';
+import { cn } from '@/lib/cn';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
-const STORY_IMAGE = {
-  src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80',
-  alt: 'Reviewing project plans together at the table',
-  width: 1200,
-  height: 1400,
-};
-
 /**
- * Family photo placeholders. There are no real photos yet, so each slot
- * renders a simple tinted tile instead of a stock photo standing in for a
- * real person — swap `photo: undefined` for `photo: { src, alt, width,
- * height }` per person once real family photos are available, and update
- * the render below to use <Image asset={photo} /> when `photo` is set.
+ * Story photos — real family photos instead of stock imagery, arranged in a
+ * small staggered set. Each entry is a self-contained { image, caption }
+ * pair; the staggered offset (every second tile pushed down) is applied by
+ * index in the grid below.
  */
-const FAMILY_MEMBERS: { name: string; tone: string }[] = [
-  { name: 'Ben', tone: 'bg-primary-50 text-primary-500' },
-  { name: 'Alex', tone: 'bg-secondary-50 text-secondary-500' },
-  { name: 'Serena', tone: 'bg-tertiary-50 text-tertiary-500' },
+const STORY_PHOTOS: { image: { src: string; alt: string; width: number; height: number }; caption?: string }[] = [
+  {
+    image: {
+      src: babyPhoto,
+      alt: 'An early family photo',
+      width: 1536,
+      height: 2048,
+    },
+  },
+  {
+    image: {
+      src: threeKidsPhoto,
+      alt: 'Family photo of three kids together',
+      width: 1536,
+      height: 2048,
+    },
+  },
+  {
+    image: {
+      src: familyPhoto,
+      alt: "Kyle, the owner, with his kids in the 1990s",
+      width: 1536,
+      height: 2048,
+    },
+    caption: "Kyle (the owner) and his kids in the 90's",
+  },
+  {
+    image: {
+      src: boyOnGrassPhoto,
+      alt: 'One of the family, more recently',
+      width: 1536,
+      height: 2048,
+    },
+  },
 ];
 
 const APPROACH_POINTS = [
@@ -120,8 +148,17 @@ export function About() {
               </p>
             </div>
           </div>
-          <div className="aspect-3/4 overflow-hidden rounded-xl">
-            <Image asset={STORY_IMAGE} />
+          <div className="grid grid-cols-2 gap-4 sm:gap-5">
+            {STORY_PHOTOS.map((photo, index) => (
+              <figure key={photo.image.src} className={cn(index % 2 === 1 && 'mt-8 sm:mt-12')}>
+                <div className="aspect-3/4 overflow-hidden rounded-xl">
+                  <Image asset={photo.image} />
+                </div>
+                {photo.caption ? (
+                  <figcaption className="mt-2.5 text-sm text-ink-600">{photo.caption}</figcaption>
+                ) : null}
+              </figure>
+            ))}
           </div>
         </div>
       </Section>
@@ -142,20 +179,16 @@ export function About() {
           }
         />
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {FAMILY_MEMBERS.map((member) => (
-            <div
-              key={member.name}
-              className="flex aspect-square flex-col items-center justify-center gap-3 rounded-xl border border-ink-200 bg-white"
-            >
-              <div className={`flex h-14 w-14 items-center justify-center rounded-full ${member.tone}`}>
-                <Users className="h-6 w-6" aria-hidden="true" />
-              </div>
-              <span className="text-sm font-medium text-ink-600">{member.name}</span>
-            </div>
-          ))}
+        <div className="mx-auto mt-10 max-w-sm overflow-hidden rounded-xl">
+          <Image
+            asset={{
+              src: grandkidsPhoto,
+              alt: 'Ben, Alex, and Serena together',
+              width: 1536,
+              height: 2048,
+            }}
+          />
         </div>
-        <p className="mt-4 text-center text-sm text-ink-500">Family photos coming soon.</p>
       </Section>
 
       <WhyUsSection

@@ -12,7 +12,7 @@ const FOOTER_SERVICE_COUNT = 6;
 
 export function Footer() {
   return (
-    <footer className="border-t border-ink-800 bg-ink-950 text-ink-100">
+    <footer className="border-t border-ink-800 bg-ink-950 pb-20 text-ink-100 sm:pb-0">
       <Container className="py-14 sm:py-16">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
