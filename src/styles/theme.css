@@ -103,6 +103,20 @@
   /* Container widths kept in one place so layout stays consistent */
   --container-content: 72rem;
   --container-narrow: 48rem;
+
+  /* Gentle continuous float, used for the About page's story photos —
+     staggered per-tile via animation-delay so they drift out of sync. */
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @layer base {

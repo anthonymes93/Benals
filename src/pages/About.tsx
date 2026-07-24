@@ -151,7 +151,11 @@ export function About() {
           </Reveal>
           <Reveal variant="slide-right" delay={120} className="grid grid-cols-2 gap-4 sm:gap-5">
             {STORY_PHOTOS.map((photo, index) => (
-              <figure key={photo.image.src} className={cn(index % 2 === 1 && 'mt-8 sm:mt-12')}>
+              <figure
+                key={photo.image.src}
+                className={cn('animate-float', index % 2 === 1 && 'mt-8 sm:mt-12')}
+                style={{ animationDelay: `${index * 0.6}s` }}
+              >
                 <div className="aspect-3/4 overflow-hidden rounded-xl">
                   <Image asset={photo.image} />
                 </div>
