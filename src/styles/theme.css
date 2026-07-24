@@ -117,6 +117,11 @@
        we want an animated scroll (the Services page's in-page category nav)
        requests it explicitly via scrollIntoView({ behavior: 'smooth' }). */
     -webkit-text-size-adjust: 100%;
+    /* Slide-in reveal animations translate elements off their resting position
+       before they enter the viewport; without this, that transient offset can
+       open a horizontal scrollbar on narrow screens. Set on both html and body
+       since either can end up as the browser's root scrolling element. */
+    overflow-x: hidden;
   }
 
   body {
@@ -125,6 +130,7 @@
     font-family: var(--font-sans);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   h1,

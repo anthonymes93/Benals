@@ -7,6 +7,7 @@ import { ServicesGrid } from '@/components/sections/ServicesGrid';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Button } from '@/components/ui/Button';
+import { Reveal } from '@/components/ui/Reveal';
 import { services } from '@/data/services';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
@@ -31,7 +32,7 @@ export function Home() {
       />
 
       <Section background="tint">
-        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+        <Reveal variant="fade-up" className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
             eyebrow="What We Do"
             title="Services for homes and businesses across Niagara"
@@ -40,7 +41,7 @@ export function Home() {
           <Button href="/services" variant="outline" className="shrink-0">
             Explore Our Services
           </Button>
-        </div>
+        </Reveal>
         <div className="mt-12">
           <ServicesGrid services={services} />
         </div>
@@ -51,17 +52,19 @@ export function Home() {
       <ProcessSteps />
 
       <Section background="white" narrow>
-        <SectionHeading
-          align="center"
-          eyebrow="Why 'Benals'"
-          title="A name that comes from family"
-          description="Benals Construction is named after the owner's grandchildren — Ben, Alex, and Serena — who also picked the orange, blue, and pink you'll see throughout this site. It's a family business, and that shows in how we treat every project and every client."
-        />
-        <div className="mt-6 text-center">
-          <Button href="/about" variant="outline">
-            Learn About Benals
-          </Button>
-        </div>
+        <Reveal variant="fade-up">
+          <SectionHeading
+            align="center"
+            eyebrow="Why 'Benals'"
+            title="A name that comes from family"
+            description="Benals Construction is named after the owner's grandchildren — Ben, Alex, and Serena — who also picked the orange, blue, and pink you'll see throughout this site. It's a family business, and that shows in how we treat every project and every client."
+          />
+          <div className="mt-6 text-center">
+            <Button href="/about" variant="outline">
+              Learn About Benals
+            </Button>
+          </div>
+        </Reveal>
       </Section>
 
       <CTASection />

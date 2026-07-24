@@ -7,6 +7,7 @@ import grandkidsPhoto from '@/assets/imgs/3kidsbycar.jpeg';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { Reveal } from '@/components/ui/Reveal';
 import { WhyUsSection } from '@/components/sections/WhyUsSection';
 import { CTASection } from '@/components/sections/CTASection';
 import { Image } from '@/components/common/Image';
@@ -96,7 +97,7 @@ export function About() {
 
       <Section background="paper">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          <div>
+          <Reveal variant="slide-left">
             <SectionHeading
               eyebrow="Our Story"
               title="Niagara roots, family-first approach"
@@ -147,8 +148,8 @@ export function About() {
                 35+ years of residential and commercial construction experience.
               </p>
             </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4 sm:gap-5">
+          </Reveal>
+          <Reveal variant="slide-right" delay={120} className="grid grid-cols-2 gap-4 sm:gap-5">
             {STORY_PHOTOS.map((photo, index) => (
               <figure key={photo.image.src} className={cn(index % 2 === 1 && 'mt-8 sm:mt-12')}>
                 <div className="aspect-3/4 overflow-hidden rounded-xl">
@@ -159,27 +160,29 @@ export function About() {
                 ) : null}
               </figure>
             ))}
-          </div>
+          </Reveal>
         </div>
       </Section>
 
       <Section background="tint" narrow>
-        <SectionHeading
-          align="center"
-          eyebrow="Where the Name Comes From"
-          title="Ben, Alex, and Serena"
-          description={
-            <>
-              The name Benals Construction comes from owner Kyle's three grandchildren — Ben,
-              Alex, and Serena. It's a small detail, but it says a lot about how this business is
-              run: family comes first, and that same care carries through to every client and
-              every project. The grandchildren even had a hand in the branding — the orange,
-              blue, and pink you'll see across this site are the colours they picked.
-            </>
-          }
-        />
+        <Reveal variant="fade-up">
+          <SectionHeading
+            align="center"
+            eyebrow="Where the Name Comes From"
+            title="Ben, Alex, and Serena"
+            description={
+              <>
+                The name Benals Construction comes from owner Kyle's three grandchildren — Ben,
+                Alex, and Serena. It's a small detail, but it says a lot about how this business is
+                run: family comes first, and that same care carries through to every client and
+                every project. The grandchildren even had a hand in the branding — the orange,
+                blue, and pink you'll see across this site are the colours they picked.
+              </>
+            }
+          />
+        </Reveal>
 
-        <div className="mx-auto mt-10 max-w-sm overflow-hidden rounded-xl">
+        <Reveal variant="scale-in" delay={150} className="mx-auto mt-10 max-w-sm overflow-hidden rounded-xl">
           <Image
             asset={{
               src: grandkidsPhoto,
@@ -188,7 +191,7 @@ export function About() {
               height: 2048,
             }}
           />
-        </div>
+        </Reveal>
       </Section>
 
       <WhyUsSection

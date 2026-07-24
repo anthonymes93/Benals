@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { Phone, ClipboardList } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
+import { HeroReveal } from '@/components/ui/HeroReveal';
 import { Image } from '@/components/common/Image';
 import { siteConfig } from '@/data/siteConfig';
 import { cn } from '@/lib/cn';
@@ -23,7 +24,7 @@ export function Hero({ eyebrow, title, description, image, trustPoints }: HeroPr
   return (
     <div className="relative overflow-hidden bg-ink-950">
       <Container className="grid grid-cols-1 items-center gap-10 py-14 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:py-28">
-        <div>
+        <HeroReveal variant="left">
           {eyebrow ? (
             <p className="mb-4 text-sm font-semibold tracking-wide text-primary-400 uppercase">
               {eyebrow}
@@ -73,11 +74,11 @@ export function Hero({ eyebrow, title, description, image, trustPoints }: HeroPr
               ))}
             </ul>
           ) : null}
-        </div>
+        </HeroReveal>
 
-        <div className="relative aspect-4/3 overflow-hidden rounded-xl lg:aspect-square">
+        <HeroReveal variant="right" delay={120} className="relative aspect-4/3 overflow-hidden rounded-xl lg:aspect-square">
           <Image asset={image} lazy={false} className="rounded-xl" />
-        </div>
+        </HeroReveal>
       </Container>
     </div>
   );

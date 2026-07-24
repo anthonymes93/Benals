@@ -2,6 +2,7 @@ import { Wallet, MessageSquare, CalendarClock, MapPin } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { Reveal } from '@/components/ui/Reveal';
 import { cn } from '@/lib/cn';
 
 /** Cycled across icon chips for subtle decorative variety — primary carries the most weight. */
@@ -60,14 +61,16 @@ export function WhyUsSection({
 }: WhyUsSectionProps) {
   return (
     <Section background="white">
-      <SectionHeading eyebrow={eyebrow} title={title} description={description} />
+      <Reveal variant="fade-up">
+        <SectionHeading eyebrow={eyebrow} title={title} description={description} />
+      </Reveal>
 
       <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {points.map((point, index) => {
           const Icon = point.icon;
           const chipTone = ICON_TONES[index % ICON_TONES.length];
           return (
-            <div key={point.title}>
+            <Reveal key={point.title} variant="fade-up" delay={index * 90}>
               <div className={cn('flex h-11 w-11 items-center justify-center rounded-lg', chipTone)}>
                 <Icon className="h-6 w-6" aria-hidden="true" />
               </div>
@@ -75,7 +78,7 @@ export function WhyUsSection({
               <p className="mt-2 text-[15px] leading-relaxed text-ink-600">
                 {point.description}
               </p>
-            </div>
+            </Reveal>
           );
         })}
       </div>

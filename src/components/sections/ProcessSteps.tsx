@@ -1,5 +1,6 @@
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { Reveal } from '@/components/ui/Reveal';
 
 const STEPS = [
   {
@@ -27,15 +28,17 @@ const STEPS = [
 export function ProcessSteps() {
   return (
     <Section background="tint">
-      <SectionHeading
-        eyebrow="How It Works"
-        title="From first call to finished job"
-        description="A straightforward process so you always know what happens next."
-      />
+      <Reveal variant="fade-up">
+        <SectionHeading
+          eyebrow="How It Works"
+          title="From first call to finished job"
+          description="A straightforward process so you always know what happens next."
+        />
+      </Reveal>
 
       <ol className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        {STEPS.map((step) => (
-          <li key={step.number} className="relative pl-14">
+        {STEPS.map((step, index) => (
+          <Reveal as="li" key={step.number} variant="fade-up" delay={index * 90} className="relative pl-14">
             <span
               className="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-full bg-cta-pink font-display text-sm font-bold text-white"
               aria-hidden="true"
@@ -46,7 +49,7 @@ export function ProcessSteps() {
             <p className="mt-2 text-[15px] leading-relaxed text-ink-600">
               {step.description}
             </p>
-          </li>
+          </Reveal>
         ))}
       </ol>
     </Section>

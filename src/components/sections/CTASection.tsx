@@ -1,6 +1,7 @@
 import { Phone } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { Reveal } from '@/components/ui/Reveal';
 import { siteConfig } from '@/data/siteConfig';
 
 interface CTASectionProps {
@@ -15,7 +16,7 @@ export function CTASection({
 }: CTASectionProps) {
   return (
     <Section background="dark">
-      <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
+      <Reveal variant="fade-up" className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
         <div className="max-w-xl">
           <h2 className="text-3xl text-white sm:text-4xl">{title}</h2>
           <p className="mt-3 text-lg text-ink-100">{description}</p>
@@ -33,7 +34,7 @@ export function CTASection({
             Request a Free Estimate
           </Button>
         </div>
-      </div>
+      </Reveal>
     </Section>
   );
 }
