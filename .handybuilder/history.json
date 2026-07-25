@@ -1,0 +1,29 @@
+{
+  "entries": [
+    {
+      "id": "ms0oco4b-sxqw7rp",
+      "timestamp": 1785002417435,
+      "editType": "image",
+      "sourceLine": 20,
+      "description": "Replaced image",
+      "element": {
+        "tagName": "img",
+        "id": null,
+        "classList": [
+          "h-full",
+          "w-full",
+          "object-cover",
+          "rounded-xl"
+        ]
+      },
+      "changes": [
+        {
+          "filePath": "/home/anthony/Projects/Clients/Benals/src/components/common/Image.tsx",
+          "beforeContent": "import type { ImgHTMLAttributes } from 'react';\nimport { cn } from '@/lib/cn';\nimport type { ImageAsset } from '@/types';\n\ninterface ImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'alt' | 'width' | 'height'> {\n  asset: ImageAsset;\n  className?: string;\n  /** Defaults to true; set false only for the largest above-the-fold image on a page. */\n  lazy?: boolean;\n}\n\n/**\n * Single point of control for every image on the site. Every photo is\n * currently a hot-linked Unsplash placeholder described in src/data — swap\n * an entry's `src` to a local asset (e.g. import from src/assets) and this\n * component needs no changes.\n */\nexport function Image({ asset, className, lazy = true, ...rest }: ImageProps) {\n  return (\n    <img\n      src={asset.src}\n      alt={asset.alt}\n      width={asset.width}\n      height={asset.height}\n      loading={lazy ? 'lazy' : 'eager'}\n      decoding=\"async\"\n      className={cn('h-full w-full object-cover', className)}\n      {...rest}\n     style={{ objectFit: \"cover\", objectPosition: \"50% 50%\" }}/>\n  );\n}\n",
+          "afterContent": "import type { ImgHTMLAttributes } from 'react';\nimport { cn } from '@/lib/cn';\nimport type { ImageAsset } from '@/types';\n\ninterface ImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'alt' | 'width' | 'height'> {\n  asset: ImageAsset;\n  className?: string;\n  /** Defaults to true; set false only for the largest above-the-fold image on a page. */\n  lazy?: boolean;\n}\n\n/**\n * Single point of control for every image on the site. Every photo is\n * currently a hot-linked Unsplash placeholder described in src/data — swap\n * an entry's `src` to a local asset (e.g. import from src/assets) and this\n * component needs no changes.\n */\nexport function Image({ asset, className, lazy = true, ...rest }: ImageProps) {\n  return (\n    <img\n      src=\"/handybuilder-assets/ChatGPT_Image_Jul_25__2026__01_59_56_PM-1785002416108.png\"\n      alt={asset.alt}\n      width={asset.width}\n      height={asset.height}\n      loading={lazy ? 'lazy' : 'eager'}\n      decoding=\"async\"\n      className={cn('h-full w-full object-cover', className)}\n      {...rest}\n     style={{ objectFit: \"cover\", objectPosition: \"50% 50%\" }}/>\n  );\n}\n"
+        }
+      ]
+    }
+  ],
+  "cursor": 1
+}
