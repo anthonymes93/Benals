@@ -3,10 +3,10 @@ import { Phone, ClipboardList } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { HeroReveal } from '@/components/ui/HeroReveal';
-import { Image } from '@/components/common/Image';
+import { HeroSlideshow } from '@/components/sections/HeroSlideshow';
 import { siteConfig } from '@/data/siteConfig';
+import { heroImages } from '@/data/heroImages';
 import { cn } from '@/lib/cn';
-import type { ImageAsset } from '@/types';
 
 /** Cycled across trust-point bullets for subtle decorative variety. */
 const DOT_TONES = ['bg-primary-500', 'bg-secondary-500', 'bg-tertiary-500'];
@@ -15,16 +15,27 @@ interface HeroProps {
   eyebrow?: string;
   title: ReactNode;
   description: ReactNode;
-  image: ImageAsset;
   trustPoints?: string[];
 }
 
-/** Homepage hero: headline + CTAs on one side, a photo on the other. */
-export function Hero({ eyebrow, title, description, image, trustPoints }: HeroProps) {
+/**
+ * Homepage hero: full-bleed background slideshow (see `HeroSlideshow`) with
+ * the headline, description, CTAs, and trust points layered on top. A
+ * gradient overlay keeps the white text readable against every slide.
+ */
+export function Hero({ eyebrow, title, description, trustPoints }: HeroProps) {
   return (
-    <div className="relative overflow-hidden bg-ink-950">
-      <Container className="grid grid-cols-1 items-center gap-10 py-14 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:py-28">
-        <HeroReveal variant="left">
+    <div className="relative isolate flex min-h-[560px] items-center overflow-hidden bg-ink-950 py-20 sm:min-h-[620px] sm:py-24 lg:min-h-[700px] lg:py-32">
+      <HeroSlideshow images={heroImages} />
+
+      {/* Darkest over the text column on the left, easing off toward the right so the imagery still reads through. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-linear-to-r from-ink-950/85 via-ink-950/55 to-ink-950/30"
+      />
+
+      <Container className="relative z-10">
+        <HeroReveal variant="left" className="max-w-2xl">
           {eyebrow ? (
             <p className="mb-4 text-sm font-semibold tracking-wide text-primary-400 uppercase">
               {eyebrow}
@@ -74,10 +85,6 @@ export function Hero({ eyebrow, title, description, image, trustPoints }: HeroPr
               ))}
             </ul>
           ) : null}
-        </HeroReveal>
-
-        <HeroReveal variant="right" delay={120} className="relative aspect-4/3 overflow-hidden rounded-xl lg:aspect-square">
-          <Image asset={image} lazy={false} className="rounded-xl" />
         </HeroReveal>
       </Container>
     </div>

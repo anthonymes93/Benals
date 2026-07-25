@@ -1,4 +1,3 @@
-import heroPhoto from '@/assets/imgs/home/blueprint-and-framing.jpeg';
 import { Hero } from '@/components/sections/Hero';
 import { WhyUsSection } from '@/components/sections/WhyUsSection';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
@@ -11,13 +10,6 @@ import { Reveal } from '@/components/ui/Reveal';
 import { services } from '@/data/services';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
-const HERO_IMAGE = {
-  src: heroPhoto,
-  alt: 'A hand sketching a floor plan beside a torn-paper reveal of a house under construction, framed but not yet drywalled',
-  width: 1254,
-  height: 1254,
-};
-
 export function Home() {
   useDocumentTitle('Construction & Renovation Services in the Niagara Region');
 
@@ -27,7 +19,6 @@ export function Home() {
         eyebrow="We have vision for your inspiration!"
         title="Reliable construction and renovation services for homes and businesses across Niagara."
         description="Benals Construction plans and builds renovation, construction, and property improvement projects — with straightforward communication from your first call to the final walkthrough."
-        image={HERO_IMAGE}
         trustPoints={['Residential & commercial projects', 'Serving all of Niagara Region', 'Free estimates', 'Turn unused spaces into useable spaces']}
       />
 
