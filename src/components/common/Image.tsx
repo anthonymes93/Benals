@@ -18,7 +18,7 @@ interface ImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'src' | '
 export function Image({ asset, className, lazy = true, ...rest }: ImageProps) {
   return (
     <img
-      src="/handybuilder-assets/ChatGPT_Image_Jul_25__2026__01_59_56_PM-1785002416108.png"
+      src={asset.src}
       alt={asset.alt}
       width={asset.width}
       height={asset.height}
