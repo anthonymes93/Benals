@@ -1,4 +1,4 @@
-import heroPhoto from '@/assets/imgs/home/60d6a1e6-cc34-45cd-82f1-9540594cb672.jpeg';
+import heroPhoto from '@/assets/imgs/home/blueprint-and-framing.jpeg';
 import { Hero } from '@/components/sections/Hero';
 import { WhyUsSection } from '@/components/sections/WhyUsSection';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
@@ -13,9 +13,9 @@ import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 const HERO_IMAGE = {
   src: heroPhoto,
-  alt: 'Basement room mid-renovation with taped drywall, an open doorway, and renovation supplies on the floor',
-  width: 1536,
-  height: 2048,
+  alt: 'A hand sketching a floor plan beside a torn-paper reveal of a house under construction, framed but not yet drywalled',
+  width: 1254,
+  height: 1254,
 };
 
 export function Home() {
