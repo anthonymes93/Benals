@@ -1,4 +1,5 @@
 import { Handshake, Users, Clock, Wrench } from 'lucide-react';
+import kyleAndWifePhoto from '@/assets/imgs/d410f57c-989b-44bb-a2cd-42704f10672f.jpeg';
 import babyPhoto from '@/assets/imgs/about4/babyoldpic.jpeg';
 import threeKidsPhoto from '@/assets/imgs/about4/3kidsoldpic.jpeg';
 import familyPhoto from '@/assets/imgs/about4/kidsoldphoto.jpeg';
@@ -93,6 +94,15 @@ export function About() {
         eyebrow="About Benals"
         title="A family-run contractor built on straight answers and steady work"
         description="We're a small crew that takes on a limited number of jobs at a time, on purpose, so every one of them gets the attention it needs."
+        image={{
+          asset: {
+            src: kyleAndWifePhoto,
+            alt: 'Kyle, the owner, with his wife',
+            width: 1536,
+            height: 2048,
+          },
+          caption: 'Kyle (the owner) and his amazing wife!',
+        }}
       />
 
       <Section background="paper">
