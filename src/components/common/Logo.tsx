@@ -1,29 +1,30 @@
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/cn';
-import { siteConfig } from '@/data/siteConfig';
 
 interface LogoProps {
   inverse?: boolean;
   className?: string;
 }
 
-/** Text-only wordmark — "Benals" in the ink color, "Construction" in the primary accent. */
+/**
+ * Text-only wordmark — "Ben" / "al" / "s" each in a solid, vivid brand color
+ * (the same saturated orange/blue/pink used by the CTA button, no gradient),
+ * "Construction" in ink on the light header and white on the dark footer.
+ */
 export function Logo({ inverse = false, className }: LogoProps) {
   return (
     <Link
       to="/"
       className={cn(
-        'inline-flex items-center font-display text-lg font-bold tracking-tight',
-        inverse ? 'text-white' : 'text-ink-950',
+        'inline-flex items-center font-display text-[23px] font-bold tracking-tight',
         className,
       )}
     >
       <span className="leading-none">
-        {siteConfig.shortName}
-        <span className={inverse ? 'text-primary-400' : 'text-primary-600'}>
-          {' '}
-          Construction
-        </span>
+        <span className={inverse ? 'text-cta-orange-bright' : 'text-cta-orange'}>Ben</span>
+        <span className={inverse ? 'text-outline-blue-bright' : 'text-outline-blue'}>al</span>
+        <span className={inverse ? 'text-cta-pink-bright' : 'text-cta-pink'}>s</span>
+        <span className={inverse ? 'text-white' : 'text-ink-950'}> Construction</span>
       </span>
     </Link>
   );
