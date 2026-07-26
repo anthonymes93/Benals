@@ -11,9 +11,6 @@ import { Resend } from 'resend';
  * rather than imported from src/data/siteConfig.
  */
 const BUSINESS_NAME = 'Benals Construction';
-const BUSINESS_PHONE_DISPLAY = '(905) 394-2408';
-const BUSINESS_PHONE_HREF = 'tel:+19053942408';
-const BUSINESS_WEBSITE = 'https://www.benals.ca';
 
 const MAX_LENGTHS = {
   name: 200,
@@ -151,65 +148,6 @@ function buildOwnerEmail(payload: ContactPayload) {
   };
 }
 
-function buildCustomerEmail(payload: ContactPayload) {
-  const firstName = escapeHtml(payload.name.split(' ')[0] || payload.name);
-  const service = escapeHtml(payload.service || 'Not specified');
-  const message = escapeHtml(payload.message).replace(/\n/g, '<br>');
-  const businessName = escapeHtml(BUSINESS_NAME);
-  const phoneDisplay = escapeHtml(BUSINESS_PHONE_DISPLAY);
-  const websiteDisplay = escapeHtml(BUSINESS_WEBSITE.replace(/^https?:\/\//, ''));
-
-  const html = `
-    <div style="font-family: Arial, Helvetica, sans-serif; max-width: 560px; margin: 0 auto; color: #1a1a1a;">
-      <h2 style="margin-bottom: 12px;">Thank you for contacting ${businessName}</h2>
-      <p>Hi ${firstName},</p>
-      <p>
-        Thank you for contacting ${businessName}. We've received your request and will
-        review the details you submitted.
-      </p>
-      <p>
-        If your request is urgent, please call us directly at
-        <a href="${BUSINESS_PHONE_HREF}">${phoneDisplay}</a>.
-      </p>
-      <p style="font-weight: bold; margin-top: 20px; margin-bottom: 6px;">A copy of your message</p>
-      <table style="width: 100%; border-collapse: collapse; font-size: 15px;">
-        <tr>
-          <td style="padding: 6px 0; font-weight: bold; width: 120px; vertical-align: top;">Service</td>
-          <td style="padding: 6px 0;">${service}</td>
-        </tr>
-      </table>
-      <p style="white-space: pre-wrap; line-height: 1.5;">${message}</p>
-      <p style="margin-top: 24px;">
-        Thank you,<br>
-        ${businessName}<br>
-        <a href="${BUSINESS_WEBSITE}">${websiteDisplay}</a>
-      </p>
-    </div>
-  `;
-
-  const text = [
-    `Hi ${payload.name.split(' ')[0] || payload.name},`,
-    '',
-    `Thank you for contacting ${BUSINESS_NAME}. We've received your request and will review the details you submitted.`,
-    '',
-    `If your request is urgent, please call us directly at ${BUSINESS_PHONE_DISPLAY}.`,
-    '',
-    'A copy of your message:',
-    `Service: ${payload.service || 'Not specified'}`,
-    payload.message,
-    '',
-    'Thank you,',
-    BUSINESS_NAME,
-    BUSINESS_WEBSITE,
-  ].join('\n');
-
-  return {
-    subject: `We received your request — ${BUSINESS_NAME}`,
-    html,
-    text,
-  };
-}
-
 /**
  * Named per-method export — Vercel's Node runtime only recognizes a
  * Request-in/Response-out signature via named HTTP-method exports (GET,
@@ -283,25 +221,6 @@ export async function POST(request: Request): Promise<Response> {
   } catch (err) {
     console.error('Unexpected error sending the owner notification email:', err);
     return jsonResponse(500, { success: false, error: GENERIC_SEND_ERROR });
-  }
-
-  // Customer confirmation is best-effort — the owner already has the lead,
-  // so a failure here must never make the form look like it failed.
-  try {
-    const customerEmail = buildCustomerEmail(payload);
-    const { error } = await resend.emails.send({
-      from: senderEmail,
-      to: payload.email,
-      subject: customerEmail.subject,
-      html: customerEmail.html,
-      text: customerEmail.text,
-    });
-
-    if (error) {
-      console.error('Resend failed to send the customer confirmation email:', error);
-    }
-  } catch (err) {
-    console.error('Unexpected error sending the customer confirmation email:', err);
   }
 
   return jsonResponse(200, { success: true });
