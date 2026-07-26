@@ -20,6 +20,8 @@ export const siteConfig = {
   },
   /** PLACEHOLDER — replace with the real business email before launch. */
   email: 'benalsconstruction@gmail.com',
+  /** PLACEHOLDER — replace with the real site domain before launch. Used in outbound emails. */
+  website: 'https://www.benalsconstruction.ca',
 
   location: {
     region: 'Niagara Region, Ontario',

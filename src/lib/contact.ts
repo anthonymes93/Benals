@@ -1,48 +1,45 @@
 import type { ContactFormValues } from '@/types';
 
+interface ContactApiResponse {
+  success: boolean;
+  error?: string;
+}
+
 /**
- * Submits the contact form to an external form-handling endpoint.
- *
- * This project ships with no backend, so submission is delegated to a form
- * endpoint configured via VITE_CONTACT_FORM_ENDPOINT (see .env.example).
- * It works as-is with form-to-email services like Formspree
- * (https://formspree.io) or Netlify Forms, or with a custom serverless
- * function that accepts a JSON POST — swap the endpoint, no component
- * changes needed.
- *
- * Until an endpoint is configured, submission throws so the UI surfaces the
- * failure clearly rather than pretending the message was sent.
+ * Submits the contact form to the site's own /api/contact serverless
+ * function, which sends the notification through Resend. Throws with a
+ * user-facing message on failure so the form can surface it inline.
  */
 export async function submitContactForm(values: ContactFormValues): Promise<void> {
-  const endpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT;
-
-  if (!endpoint) {
-    throw new Error(
-      'Contact form endpoint is not configured. Set VITE_CONTACT_FORM_ENDPOINT in .env (see .env.example).',
-    );
+  let response: Response;
+  try {
+    response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        service: values.service,
+        message: values.message,
+        company: values.company,
+      }),
+    });
+  } catch {
+    throw new Error('Network error while sending your message.');
   }
 
-  // Honeypot: bots fill every field, real users never see or fill this one.
-  if (values.company) {
-    return;
+  let data: ContactApiResponse | undefined;
+  try {
+    data = (await response.json()) as ContactApiResponse;
+  } catch {
+    // Fall through — response.ok / status still tells us whether it worked.
   }
 
-  const response = await fetch(endpoint, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-    },
-    body: JSON.stringify({
-      name: values.name,
-      email: values.email,
-      phone: values.phone,
-      service: values.service,
-      message: values.message,
-    }),
-  });
-
-  if (!response.ok) {
-    throw new Error('The form endpoint rejected the submission.');
+  if (!response.ok || !data?.success) {
+    throw new Error(data?.error || 'The form endpoint rejected the submission.');
   }
 }

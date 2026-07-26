@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import type { FormEvent } from 'react';
-import { CheckCircle2, AlertTriangle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { AlertTriangle } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { InputField, TextareaField, SelectField } from '@/components/ui/FormField';
@@ -8,6 +9,8 @@ import { services } from '@/data/services';
 import { siteConfig } from '@/data/siteConfig';
 import { submitContactForm } from '@/lib/contact';
 import type { ContactFormStatus, ContactFormValues } from '@/types';
+
+const DEFAULT_ERROR_MESSAGE = 'Something went wrong sending that. Please try again.';
 
 const EMPTY_VALUES: ContactFormValues = {
   name: '',
@@ -35,9 +38,12 @@ function validate(values: ContactFormValues): FormErrors {
 }
 
 export function ContactForm() {
+  const navigate = useNavigate();
   const [values, setValues] = useState<ContactFormValues>(EMPTY_VALUES);
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<ContactFormStatus>('idle');
+  const [errorMessage, setErrorMessage] = useState(DEFAULT_ERROR_MESSAGE);
+  const isSubmittingRef = useRef(false);
 
   function updateField<K extends keyof ContactFormValues>(field: K, value: ContactFormValues[K]) {
     setValues((current) => ({ ...current, [field]: value }));
@@ -46,38 +52,24 @@ export function ContactForm() {
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    if (isSubmittingRef.current) return;
+
     const validationErrors = validate(values);
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length > 0) return;
 
+    isSubmittingRef.current = true;
     setStatus('submitting');
     try {
       await submitContactForm(values);
-      setStatus('success');
       setValues(EMPTY_VALUES);
-    } catch {
+      setErrors({});
+      navigate('/thank-you');
+    } catch (error) {
+      setErrorMessage(error instanceof Error && error.message ? error.message : DEFAULT_ERROR_MESSAGE);
       setStatus('error');
+      isSubmittingRef.current = false;
     }
-  }
-
-  if (status === 'success') {
-    return (
-      <Card className="flex flex-col items-start gap-3 border-ink-200 bg-ink-50">
-        <CheckCircle2 className="h-8 w-8 text-ink-800" aria-hidden="true" />
-        <h3 className="text-xl text-ink-950">Message sent</h3>
-        <p className="text-ink-600">
-          Thanks for reaching out. We typically respond within a business day or two. If it's
-          urgent, call us at{' '}
-          <a href={siteConfig.phone.href} className="font-semibold text-ink-900 underline">
-            {siteConfig.phone.display}
-          </a>
-          .
-        </p>
-        <Button variant="outline" onClick={() => setStatus('idle')}>
-          Send another message
-        </Button>
-      </Card>
-    );
   }
 
   return (
@@ -160,9 +152,13 @@ export function ContactForm() {
         >
           <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
           <p>
-            Something went wrong sending that. Please try again, or call us directly at{' '}
+            {errorMessage} You can also reach us directly at{' '}
             <a href={siteConfig.phone.href} className="font-semibold underline">
               {siteConfig.phone.display}
+            </a>{' '}
+            or{' '}
+            <a href={`mailto:${siteConfig.email}`} className="font-semibold underline">
+              {siteConfig.email}
             </a>
             .
           </p>
