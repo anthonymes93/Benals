@@ -210,11 +210,14 @@ function buildCustomerEmail(payload: ContactPayload) {
   };
 }
 
-export default async function handler(request: Request): Promise<Response> {
-  if (request.method !== 'POST') {
-    return jsonResponse(405, { success: false, error: 'Method not allowed.' });
-  }
-
+/**
+ * Named per-method export — Vercel's Node runtime only recognizes a
+ * Request-in/Response-out signature via named HTTP-method exports (GET,
+ * POST, ...). A `default` export returning a Response is silently ignored
+ * (the request just hangs until it times out), which is what caused the
+ * contact form's 500s in production.
+ */
+export async function POST(request: Request): Promise<Response> {
   let rawBody: Record<string, unknown>;
   try {
     rawBody = (await request.json()) as Record<string, unknown>;

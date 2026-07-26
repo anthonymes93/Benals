@@ -1,0 +1,6 @@
+{
+  "extends": "../tsconfig.api.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "../node_modules/.tmp/tsconfig.api.tsbuildinfo"
+  }
+}
