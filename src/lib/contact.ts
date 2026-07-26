@@ -32,14 +32,21 @@ export async function submitContactForm(values: ContactFormValues): Promise<void
     throw new Error('Network error while sending your message.');
   }
 
-  let data: ContactApiResponse | undefined;
+  let data: unknown;
   try {
-    data = (await response.json()) as ContactApiResponse;
+    data = await response.json();
   } catch {
     // Fall through — response.ok / status still tells us whether it worked.
   }
 
-  if (!response.ok || !data?.success) {
-    throw new Error(data?.error || 'The form endpoint rejected the submission.');
+  const parsed = data && typeof data === 'object' ? (data as ContactApiResponse) : undefined;
+
+  if (!response.ok || !parsed?.success) {
+    // The server always sends a string `error` under its own contract, but
+    // never trust that blindly — an unexpected response shape (a platform
+    // error page, a proxy timeout body) must not end up stringified as
+    // "[object Object]" in the UI.
+    const message = typeof parsed?.error === 'string' && parsed.error ? parsed.error : undefined;
+    throw new Error(message ?? 'The form endpoint rejected the submission.');
   }
 }

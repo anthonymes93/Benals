@@ -10,7 +10,7 @@ import { siteConfig } from '@/data/siteConfig';
 import { submitContactForm } from '@/lib/contact';
 import type { ContactFormStatus, ContactFormValues } from '@/types';
 
-const DEFAULT_ERROR_MESSAGE = 'Something went wrong sending that. Please try again.';
+const DEFAULT_ERROR_MESSAGE = "We couldn't send your message.";
 
 const EMPTY_VALUES: ContactFormValues = {
   name: '',
@@ -152,7 +152,7 @@ export function ContactForm() {
         >
           <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
           <p>
-            {errorMessage} You can also reach us directly at{' '}
+            {errorMessage} Please try again, or contact us directly at{' '}
             <a href={siteConfig.phone.href} className="font-semibold underline">
               {siteConfig.phone.display}
             </a>{' '}
