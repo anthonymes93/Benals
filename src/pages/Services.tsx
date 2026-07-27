@@ -27,7 +27,7 @@ export function Services() {
       <PageHeader
         eyebrow="Services"
         title="Everything Benals Construction takes on, in one place"
-        description="14 services, listed individually below. Jump to the one you need, or get in touch if you're not sure where your project fits."
+        description="12 services, listed individually below. Jump to the one you need, or get in touch if you're not sure where your project fits."
       />
 
       <nav aria-label="Services" className="border-b border-ink-200 bg-white">

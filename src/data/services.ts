@@ -8,11 +8,9 @@ import {
   KeyRound,
   PaintRoller,
   Palette,
-  Sun,
   Building,
   Building2,
   Stethoscope,
-  GraduationCap,
 } from 'lucide-react';
 import type { Service } from '@/types';
 
@@ -135,22 +133,10 @@ export const services: Service[] = [
     bullets: ['Layout and material guidance', 'Finish selection', 'Coordinated with the construction timeline'],
   },
   {
-    id: 'patios',
-    slug: 'patios',
-    title: 'Patios',
-    order: 10,
-    icon: Sun,
-    shortDescription:
-      'Patio design, construction, and installation for functional and comfortable outdoor spaces.',
-    longDescription:
-      "A patio gets more use when it's actually built for how you plan to use it, with materials and drainage suited to our climate. We handle the design, construction, and installation, from a simple patio to a more involved outdoor living space.",
-    bullets: ['Design and layout planning', 'Construction and installation', 'Material options suited to the climate'],
-  },
-  {
     id: 'rentals',
     slug: 'rentals',
     title: 'Rentals',
-    order: 11,
+    order: 10,
     icon: Building,
     shortDescription:
       'Repairs, renovations, turnovers, and ongoing improvements for landlords and rental property owners.',
@@ -162,7 +148,7 @@ export const services: Service[] = [
     id: 'commercial-space-renovations',
     slug: 'commercial-space-renovations',
     title: 'Commercial Space Renovations',
-    order: 12,
+    order: 11,
     icon: Building2,
     shortDescription:
       'Planning and renovation work for commercial interiors, offices, and other business spaces.',
@@ -174,25 +160,13 @@ export const services: Service[] = [
     id: 'doctors-waiting-rooms',
     slug: 'doctors-waiting-rooms',
     title: "Doctor's Waiting Rooms",
-    order: 13,
+    order: 12,
     icon: Stethoscope,
     shortDescription:
       'Renovation and refresh work for medical waiting rooms and related interior spaces.',
     longDescription:
       "Medical waiting rooms and related spaces need to stay functional and welcoming while minimizing downtime for the practice. We take on renovation and refresh work for these spaces and can schedule around clinic hours where that helps reduce disruption.",
     bullets: ['Waiting room and reception renovations', 'Refresh and update work', 'Scheduling to reduce disruption where possible'],
-  },
-  {
-    id: 'school-renovations',
-    slug: 'school-renovations',
-    title: 'School Renovations',
-    order: 14,
-    icon: GraduationCap,
-    shortDescription:
-      'Repairs, upgrades, drywall, and small renovation work for school and institutional spaces.',
-    longDescription:
-      "School and institutional spaces need repairs and upgrades handled carefully around a schedule that isn't flexible. We take on drywall, repairs, and small renovation work for these spaces, including scheduling around school hours or breaks where that helps.",
-    bullets: ['Repairs and upgrades', 'Drywall and small renovation work', 'Scheduling around school hours where possible'],
   },
 ];
 

@@ -7,7 +7,7 @@ import { services } from '@/data/services';
 import { siteConfig } from '@/data/siteConfig';
 
 // Footer stays a fixed, glanceable height — link to the full list rather
-// than listing all 14 services here.
+// than listing all 12 services here.
 const FOOTER_SERVICE_COUNT = 6;
 
 export function Footer() {
