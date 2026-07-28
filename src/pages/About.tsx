@@ -4,6 +4,7 @@ import babyPhoto from '@/assets/imgs/about4/babyoldpic.jpeg';
 import threeKidsPhoto from '@/assets/imgs/about4/3kidsoldpic.jpeg';
 import familyPhoto from '@/assets/imgs/about4/kidsoldphoto.jpeg';
 import boyOnGrassPhoto from '@/assets/imgs/about4/boyongrass.jpeg';
+import nieceNephewPhoto from '@/assets/imgs/9bfca68d-40b9-4c62-8292-408691ef9008.jpeg';
 import grandkidsPhoto from '@/assets/imgs/3kidsbycar.jpeg';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
@@ -55,6 +56,15 @@ const STORY_PHOTOS: { image: { src: string; alt: string; width: number; height: 
       width: 1536,
       height: 2048,
     },
+  },
+  {
+    image: {
+      src: nieceNephewPhoto,
+      alt: "Kyle's (the owner's) niece and nephew",
+      width: 1536,
+      height: 2048,
+    },
+    caption: "Kyle (the owner's) niece and nephew",
   },
 ];
 
