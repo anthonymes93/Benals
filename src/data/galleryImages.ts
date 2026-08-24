@@ -1,3 +1,11 @@
+import moreFirst from '@/assets/imgs/more-gallery/first.jpeg';
+import more01 from '@/assets/imgs/more-gallery/1df7f5fe-7034-4e17-9912-1d33b750baf0.jpeg';
+import more02 from '@/assets/imgs/more-gallery/2a13fffc-65e7-4ae8-a5b4-f3364431bb1f.jpeg';
+import more03 from '@/assets/imgs/more-gallery/4cdc3725-6b8f-47d5-aa22-6e8527820679.jpeg';
+import more04 from '@/assets/imgs/more-gallery/886ef8ec-1910-4658-8d5b-a6b33940fac2.jpeg';
+import more05 from '@/assets/imgs/more-gallery/c41eb409-708b-48d2-b98b-6eaae44c9827.jpeg';
+import more06 from '@/assets/imgs/more-gallery/ed327eb8-d784-4ac4-86db-faf7b35161b7.jpeg';
+import more07 from '@/assets/imgs/more-gallery/f7a02b3c-3ca4-461e-9ae5-fb52ec7e9c0a.jpeg';
 import g01 from '@/assets/imgs/gallery/04f59724-1622-4fd6-91b2-83989db77fe3.jpeg';
 import g02 from '@/assets/imgs/gallery/0d9bd462-3def-498a-a8b6-5c0d29b58bd8.jpeg';
 import g03 from '@/assets/imgs/gallery/157a7d44-52ae-438c-ba20-909c64f802cc.jpeg';
@@ -94,4 +102,15 @@ export const galleryImages: ImageAsset[] = [
   { src: g42, alt: 'Room mid-renovation with a new subfloor', width: 1536, height: 2048 },
   { src: familyPhoto, alt: 'Kyle, the owner, with his kids in the 1990s', width: 1536, height: 2048 },
   { src: kittensPhoto, alt: 'Kittens playing', width: 1536, height: 2048 },
+];
+
+export const moreGalleryImages: ImageAsset[] = [
+  { src: moreFirst, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
+  { src: more01, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
+  { src: more02, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
+  { src: more03, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
+  { src: more04, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
+  { src: more05, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
+  { src: more06, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
+  { src: more07, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
 ];

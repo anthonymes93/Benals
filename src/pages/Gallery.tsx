@@ -2,7 +2,7 @@ import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
 import { GalleryGrid } from '@/components/sections/GalleryGrid';
 import { CTASection } from '@/components/sections/CTASection';
-import { galleryImages } from '@/data/galleryImages';
+import { galleryImages, moreGalleryImages } from '@/data/galleryImages';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 export function Gallery() {
@@ -17,7 +17,10 @@ export function Gallery() {
       />
 
       <Section background="paper">
-        <GalleryGrid images={galleryImages} />
+        <GalleryGrid images={moreGalleryImages} layout="grid" />
+        <div className="mt-4">
+          <GalleryGrid images={galleryImages} />
+        </div>
       </Section>
 
       <CTASection
