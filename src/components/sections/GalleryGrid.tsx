@@ -7,8 +7,8 @@ interface GalleryGridProps {
   layout?: 'masonry' | 'grid';
 }
 
-/** Masonry-style photo grid for the Gallery page. */
-export function GalleryGrid({ images, layout = 'masonry' }: GalleryGridProps) {
+/** Photo grid for the Gallery page. */
+export function GalleryGrid({ images, layout = 'grid' }: GalleryGridProps) {
   if (layout === 'grid') {
     return (
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

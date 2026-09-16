@@ -6,6 +6,14 @@ import more04 from '@/assets/imgs/more-gallery/886ef8ec-1910-4658-8d5b-a6b33940f
 import more05 from '@/assets/imgs/more-gallery/c41eb409-708b-48d2-b98b-6eaae44c9827.jpeg';
 import more06 from '@/assets/imgs/more-gallery/ed327eb8-d784-4ac4-86db-faf7b35161b7.jpeg';
 import more07 from '@/assets/imgs/more-gallery/f7a02b3c-3ca4-461e-9ae5-fb52ec7e9c0a.jpeg';
+import moreMore01 from '@/assets/imgs/more-more-gallery/6bf31529-bfe0-4654-9159-404f217bb901.jpeg';
+import moreMore02 from '@/assets/imgs/more-more-gallery/750f4a6f-a681-4ce6-81b5-fd63e4382788.jpeg';
+import moreMore03 from '@/assets/imgs/more-more-gallery/75600d93-5ed6-4ddc-8de6-c2a68c0fed63.jpeg';
+import moreMore04 from '@/assets/imgs/more-more-gallery/4db9fe90-b8eb-4612-9ba4-48a100af6a90.jpeg';
+import moreMore05 from '@/assets/imgs/more-more-gallery/b6c3eb02-3369-4999-bd0f-405a03b79336.jpeg';
+import moreMore06 from '@/assets/imgs/more-more-gallery/55329958-654f-4058-8907-dbbbfc192e66.jpeg';
+import moreMore07 from '@/assets/imgs/more-more-gallery/71f0f2af-86bd-4caa-bcd3-c19e5c377131.jpeg';
+import moreMore08 from '@/assets/imgs/more-more-gallery/c98ecc4f-e80d-4d7d-8869-2c44c135eab3.jpeg';
 import g01 from '@/assets/imgs/gallery/04f59724-1622-4fd6-91b2-83989db77fe3.jpeg';
 import g02 from '@/assets/imgs/gallery/0d9bd462-3def-498a-a8b6-5c0d29b58bd8.jpeg';
 import g03 from '@/assets/imgs/gallery/157a7d44-52ae-438c-ba20-909c64f802cc.jpeg';
@@ -113,4 +121,15 @@ export const moreGalleryImages: ImageAsset[] = [
   { src: more05, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
   { src: more06, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
   { src: more07, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
+];
+
+export const moreMoreGalleryImages: ImageAsset[] = [
+  { src: moreMore01, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
+  { src: moreMore02, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
+  { src: moreMore03, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
+  { src: moreMore04, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
+  { src: moreMore05, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
+  { src: moreMore06, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
+  { src: moreMore07, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
+  { src: moreMore08, alt: 'Finished renovation project detail', width: 1536, height: 2048 },
 ];
