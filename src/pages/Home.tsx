@@ -48,7 +48,7 @@ export function Home() {
             align="center"
             eyebrow="Why 'Benals'"
             title="A name that comes from family"
-            description="Benals Construction is named after the owner's grandchildren — Ben, Alex, and Serena — who also picked the orange, blue, and pink you'll see throughout this site. It's a family business, and that shows in how we treat every project and every client."
+            description="Benals Construction is named after Kyles's grandchildren — Ben, Alex, and Serena — who also picked the orange, blue, and pink you'll see throughout this site. It's a family business, and that shows in how we treat every project and every client."
           />
           <div className="mt-6 text-center">
             <Button href="/about" variant="outline">
