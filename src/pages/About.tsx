@@ -43,11 +43,11 @@ const STORY_PHOTOS: { image: { src: string; alt: string; width: number; height: 
   {
     image: {
       src: familyPhoto,
-      alt: "Kyle, the owner, with his kids in the 1990s",
+      alt: "Kyle, with his kids in the 1990s",
       width: 1536,
       height: 2048,
     },
-    caption: "Kyle (the owner) and his kids in the 90's",
+    caption: "Kyle and his kids in the 90's",
   },
   {
     image: {
@@ -60,11 +60,11 @@ const STORY_PHOTOS: { image: { src: string; alt: string; width: number; height: 
   {
     image: {
       src: nieceNephewPhoto,
-      alt: "Kyle's (the owner's) niece and nephew",
+      alt: "Kyle's niece and nephew",
       width: 1536,
       height: 2048,
     },
-    caption: "Kyle (the owner's) niece and nephew",
+    caption: "Kyle niece and nephew",
   },
 ];
 
@@ -107,11 +107,11 @@ export function About() {
         image={{
           asset: {
             src: kyleAndWifePhoto,
-            alt: 'Kyle, the owner, with his wife',
+            alt: 'Kyle with his wife',
             width: 1536,
             height: 2048,
           },
-          caption: 'Kyle (the owner) and his amazing wife!',
+          caption: 'Kyle and his amazing wife!',
         }}
       />
 
@@ -196,7 +196,7 @@ export function About() {
             title="Ben, Alex, and Serena"
             description={
               <>
-                The name Benals Construction comes from owner Kyle's three grandchildren — Ben,
+                The name Benals Construction comes from Kyle's three grandchildren — Ben,
                 Alex, and Serena. It's a small detail, but it says a lot about how this business is
                 run: family comes first, and that same care carries through to every client and
                 every project. The grandchildren even had a hand in the branding — the orange,
